@@ -1,0 +1,312 @@
+@media (max-width: 1280px) {
+  :root {
+    --h1-font: 2.7rem;
+    --h2-font: 1.8rem;
+    --h3-font: 1.4rem;
+    --p-font: 1rem;
+  }
+
+  /* NAVIGATION BAR */
+  .navigation-container {
+    padding-inline: 40px;
+  }
+
+  .navigation-container #nav-menu li {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 1160px) {
+  :root {
+    --h1-font: 2.5rem;
+  }
+
+  /* NAVIGATION BAR */
+  .navigation-container #nav-menu {
+    gap: 40px;
+  }
+
+  /* VISSION & MISSION */
+  .vision-mission-image {
+    flex-basis: 40%;
+  }
+
+  .vision-mission-body {
+    flex-basis: 60%;
+  }
+
+  /* SHOP */
+  .item-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* SCANNER */
+  .new-form__documentations__outputs-item {
+    flex-direction: column;
+  }
+
+  .camera-btn-container {
+    flex-direction: column;
+    gap: 20px;
+  } 
+
+  .documentations-buttons-container {
+    flex-direction: column;
+  }
+
+  .camera-take-button-container {
+    flex-direction: column;
+    order: -1;
+  }
+
+  .scan-results-image img {
+    max-width: none;
+  }
+
+  /* FOOTER */
+  .footer-content {
+    gap: 15%;
+  }
+}
+
+@media (max-width: 964px) {
+  .background-section {
+    padding: 50px;
+  }
+
+  /* NAVIGATION BAR */
+  .navigation-container #nav-menu {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+
+    background-color: var(--secondary-color);
+    box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.75);
+    border-radius: 0 0 10px 10px;
+    width: 94%;
+    max-height: 800px;
+    padding-block: 80px;
+
+    z-index: -1;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+  }
+
+  .navigation-container #nav-menu li a {
+    font-size: 1.3rem;
+  }
+
+  .header-button p {
+    display: none;
+  }
+
+  .header-button .line-header {
+    display: block;
+  }
+
+  .header-button #hamburger-button {
+    display: block;
+  }
+
+  /* HOME */
+  .home-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-img {
+    order: -1;
+  }
+
+  .home-btn {
+    justify-content: center;
+  }
+
+  /* VISSION & MISSION */
+  .visi-misi-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* FOOTER */
+  .footer-content {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-law {
+    margin-top: 40px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 724px) {
+  :root {
+    --h1-font: 2.1rem;
+    --h2-font: 1.5rem;
+    --h3-font: 1.1rem;
+  }
+
+  .background-section {
+    padding: 30px;
+  }
+
+  .header-button {
+    padding: 7px 25px;
+  }
+
+  /* NAVIGATION BAR */
+  .navigation-container {
+    padding-inline: 20px;
+  }
+
+  .navigation-container #nav-menu {
+    width: 90%;
+  }
+
+  .logo-container .logo-name {
+    font-size: 1.3rem;
+  }
+
+    /* SHOP */
+  .item-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .card {
+    max-width: 370px;
+  }
+
+  /* FOOTER */
+  .navigation-container .footer-title {
+    font-size: 1.2rem;
+  }
+
+  .navigation-container a {
+    padding: 7px 20px;
+  }
+
+  .footer-law {
+    gap: 30px;
+  }
+
+  /* SCANNER */
+  .scanner-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 485px) {
+  :root {
+    --h1-font: 1.7rem;
+    --h2-font: 1.2rem;
+    --h3-font: 0.8rem;
+    --p-font: 0.8rem;
+  }
+
+  .header-button {
+    padding: 7px 15px;
+    gap: 5px;
+  }
+
+  .header-button .bx-cart {
+    display: none;
+  }
+
+  .header-button .line-header {
+    display: none;
+  }
+
+  .vision-mission-body h1 {
+    font-size: var(--h1-font);
+  }
+
+  .vision-mission-body h2 {
+    font-size: var(--h2-font);
+  }
+
+  .vision-mission-body p {
+    font-size: var(--p-font);
+  }
+
+  /* OUR SHOP */
+  .search-btn .search-shop {
+    width: 80%;
+  }
+
+  .filter-shop-button-container {
+    gap: 15px;
+  }
+
+  .filter-btn .filter-shop {
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+  }
+
+  .service-container h1 {
+    font-size: var(--h1-font);
+  }
+
+  .list-fitur h2 {
+    font-size: var(--h2-font);
+  }
+
+  .list-fitur p {
+    font-size: var(--p-font);
+  }
+
+  /* SHOP & SCANNER*/
+  .card .item-image {
+    width: 100px;
+  }
+
+  .scanner-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .new-form__documentations__outputs {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  /* FOOTER */
+  .footer-heading .navigation-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-heading .navigation-container a {
+    display: none;
+  }
+
+  .footer-content {
+    align-items: start;
+  }
+
+  .footer-detail {
+    flex-direction: column;
+  }
+
+  .footer-copyright {
+    text-align: start;
+  }
+
+  .footer-law {
+    margin-top: 30px;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+  }
+}
