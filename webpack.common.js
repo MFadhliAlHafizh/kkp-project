@@ -25,8 +25,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.join(__dirname, 'public/images'),
-          to: path.join(__dirname, 'dist/images'),
+          from: path.join(__dirname, 'public'),
+          to: path.join(__dirname, 'dist'),
         },
       ],
     }),

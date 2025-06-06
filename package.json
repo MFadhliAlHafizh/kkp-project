@@ -2,10 +2,9 @@
   "name": "febe",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {    
+  "scripts": {
     "start": "node ./FEBE/backend/src/server.js",
     "build": "webpack --config webpack.prod.js",
-    
     "start:frontend": "webpack serve --config webpack.dev.js",
     "start:backend": "nodemon ./FEBE/backend/src/server.js",
     "start-dev": "npm-run-all --parallel start:frontend start:backend"
@@ -31,6 +30,7 @@
   "dependencies": {
     "@hapi/hapi": "^21.4.0",
     "@hapi/inert": "^7.1.0",
+    "@tensorflow/tfjs": "^4.22.0",
     "idb": "^8.0.3",
     "nanoid": "^3.3.11"
   }

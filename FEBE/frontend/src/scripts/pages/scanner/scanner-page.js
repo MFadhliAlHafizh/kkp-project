@@ -1,12 +1,117 @@
 import { nanoid } from "nanoid";
 import { convertBase64ToBlob } from "../../utils";
 import Camera from "../../utils/camera";
+import * as tf from '@tensorflow/tfjs';
 
 export default class Scanner {
   #form;
   #isCameraOpen = false;
   #takenDocumentations = [];
   #camera;
+  #model = null;
+  #isModelLoading = false;
+  #isModelLoaded = false;
+  
+
+  #trashClasses = [
+    'Organik',
+    'Anorganik', 
+
+  ];
+
+  constructor() {
+    this.#loadModel();
+  }
+
+  async #loadModel() {
+    try {
+      this.#isModelLoading = true;
+      console.log('Loading TensorFlow.js model...');
+      
+      
+      this.#model = await tf.loadGraphModel('/models/tfjs_model/model.json');
+      console.log('Model loaded successfully!');
+      
+      this.#isModelLoaded = true;
+      this.#isModelLoading = false;
+      console.log('Model loaded successfully!');
+      
+      // Warm up model dengan prediksi dummy
+      const dummyInput = tf.zeros([1, 150, 150, 3]);
+      await this.#model.execute({ inputs: dummyInput });
+      dummyInput.dispose();
+
+      
+    } catch (error) {
+      console.error('Error loading model:', error);
+      this.#isModelLoading = false;
+    }
+  }
+
+  async #classifyImage(imageElement) {
+    if (!this.#isModelLoaded) {
+      console.warn('Model not loaded yet');
+      return {
+        className: 'Unknown',
+        confidence: 0,
+        description: 'Model belum dimuat'
+      };
+    }
+
+    try {
+      // Preprocess gambar
+      const tensor = tf.browser.fromPixels(imageElement)
+        .resizeNearestNeighbor([150, 150])
+        .expandDims(0)
+        .div(255.0); // Normalisasi
+
+      // Prediksi
+      const predictions = await this.#model.predict(tensor).data();
+      
+      // Bersihkan tensor
+      tensor.dispose();
+
+      // Cari kelas dengan confidence tertinggi
+      const maxIndex = predictions.indexOf(Math.max(...predictions));
+      const confidence = predictions[maxIndex];
+      const className = this.#trashClasses[maxIndex] || 'Unknown';
+
+      // Generate deskripsi berdasarkan kelas
+      const description = this.#generateDescription(className, confidence);
+
+      return {
+        className,
+        confidence: Math.round(confidence * 100),
+        description
+      };
+
+    } catch (error) {
+      console.error('Error during classification:', error);
+      return {
+        className: 'Error',
+        confidence: 0,
+        description: 'Terjadi kesalahan saat klasifikasi'
+      };
+    }
+  }
+
+  #generateDescription(className, confidence) {
+    const descriptions = {
+      'Organik': 'Sampah yang dapat terurai secara alami. Cocok untuk kompos.',
+      'Anorganik': 'Sampah yang tidak dapat terurai. Perlu penanganan khusus.',
+      'Error': 'Terjadi kesalahan dalam proses klasifikasi.'
+    };
+
+    const baseDescription = descriptions[className] || descriptions['Unknown'];
+    
+    if (confidence > 0.8) {
+      return `${baseDescription} (Tingkat kepercayaan: Tinggi)`;
+    } else if (confidence > 0.6) {
+      return `${baseDescription} (Tingkat kepercayaan: Sedang)`;
+    } else {
+      return `${baseDescription} (Tingkat kepercayaan: Rendah)`;
+    }
+  }
 
   async render() {
     return `
@@ -14,6 +119,7 @@ export default class Scanner {
         <form id="new-form" class="new-form">
           <div class="scanner-container">
             <h1>Klasifikasi Sampah</h1>
+            ${this.#isModelLoading ? '<div class="loading-indicator">Memuat model AI...</div>' : ''}
             <div class="new-form__documentations__container">
               <div id="camera-container" class="new-form__camera__container">
                 <video id="camera-video" class="new-form__camera__video">
@@ -45,7 +151,7 @@ export default class Scanner {
                     </div>
 
                     <div class="camera-take-button-container">
-                      <button id="camera-take-button" class="button green-button" type="button">
+                      <button id="camera-take-button" class="button green-button" type="button" ${!this.#isModelLoaded ? 'disabled' : ''}>
                         Tangkap Gambar
                       </button>
                     </div>
@@ -131,30 +237,46 @@ export default class Scanner {
       blob = await convertBase64ToBlob(image, 'image/png');
     }
 
+    // Buat temporary image element untuk klasifikasi
+    const imageElement = new Image();
+    const imageUrl = URL.createObjectURL(blob);
+    
+    const classification = await new Promise((resolve) => {
+      imageElement.onload = async () => {
+        const result = await this.#classifyImage(imageElement);
+        URL.revokeObjectURL(imageUrl);
+        resolve(result);
+      };
+      imageElement.src = imageUrl;
+    });
+
     const newDocumentation = {
       id: `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
       blob: blob,
+      classification: classification
     };
+    
     this.#takenDocumentations = [...this.#takenDocumentations, newDocumentation];
   }
 
   async #populateTakenPictures() {
     const html = this.#takenDocumentations.reduce((accumulator, picture, currentIndex) => {
       const imageUrl = URL.createObjectURL(picture.blob);
+      const { className, confidence, description } = picture.classification;
+      
       return accumulator.concat(`
-        <li class="new-form__documentations__outputs-item" data-itemId="${nanoid(16)}">
+        <li class="new-form__documentations__outputs-item" data-itemId="${picture.id}">
             <div class="scan-results-image">
               <img src="${imageUrl}" alt="Dokumentasi ke-${currentIndex + 1}" />
             </div>
             <div class="scan-results-description">
-              <h3>Nama Sampah</h3>
-              <p class="trash-type">Organik</p>
+              <h3>${className}</h3>
+              <p class="trash-type">${className} (${confidence}%)</p>
               <p class="trash-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Praesent pretium, odio vitae scelerisque
+                ${description}
               </p>
               <div class="delete-btn-container">
-                <button class="delete-btn">Hapus</button>
+                <button class="delete-btn" data-deletepictureid="${picture.id}">Hapus</button>
               </div>
             </div>
         </li>
@@ -163,18 +285,28 @@ export default class Scanner {
 
     document.getElementById('documentations-taken-list').innerHTML = html;
 
+    // Setup delete button listeners
     document.querySelectorAll('button[data-deletepictureid]').forEach((button) =>
       button.addEventListener('click', (event) => {
         const pictureId = event.currentTarget.dataset.deletepictureid;
-
-        // const deleted = this.#removePicture(pictureId);
-        // if (!deleted) {
-        //   console.log(`Picture with id ${pictureId} was not found`);
-        // }
-
-        // Updating taken pictures
+        this.#removePicture(pictureId);
         this.#populateTakenPictures();
       }),
     );
+  }
+
+  #removePicture(pictureId) {
+    const initialLength = this.#takenDocumentations.length;
+    this.#takenDocumentations = this.#takenDocumentations.filter(
+      doc => doc.id !== pictureId
+    );
+    return this.#takenDocumentations.length < initialLength;
+  }
+
+  // Method untuk cleanup saat component di-destroy
+  destroy() {
+    if (this.#model) {
+      this.#model.dispose();
+    }
   }
 }
