@@ -17,7 +17,6 @@ export default class BioporiPage {
               <div class="biopori-services-button-container">
                 <button id="biopori-pembelian-button" class="biopori-pembelian-button button service-button-active">Pembelian</button>
                 <button id="biopori-pemasangan-button" class="biopori-pemasangan-button button">Pemasangan</button>
-                <button id="biopori-perawatan-button" class="biopori-perawatan-button button">Perawatan</button>
               </div>
 
               <div class="biopori-quantity-button-container">
@@ -63,7 +62,6 @@ export default class BioporiPage {
 
     const pembelianButton = document.getElementById('biopori-pembelian-button');
     const pemasanganButton = document.getElementById('biopori-pemasangan-button');
-    const perawatanButton = document.getElementById('biopori-perawatan-button');
 
     const descriptionText = document.getElementById('biopori-details__paragraph');
     const spesificationProduct = document.getElementById('biopori-details__spesification');
@@ -73,7 +71,7 @@ export default class BioporiPage {
 
     const updateContent = () => {
       if (pembelianButton.classList.contains('service-button-active')) {
-        basePrice = 50000;
+        basePrice = 20000;
         quantityContainer.style.display = 'flex';
         
         descriptionText.textContent = `
@@ -109,25 +107,7 @@ export default class BioporiPage {
             <li>Edukasi konsumen mengenai cara merawat dan mengisi ulang lubang biopori.</li>
           </ul>
         `
-      } else if (perawatanButton.classList.contains('service-button-active')) {
-        basePrice = 120000;
-        quantityContainer.style.display = 'none';
-        
-        descriptionText.textContent = `
-          Layanan perawatan berkala untuk menjaga fungsi biopori tetap optimal. Cocok untuk Anda yang ingin biopori tetap aktif tanpa repot.
-        `;
-        spesificationProduct.innerHTML = `
-          <h3>Layanan yang ditawarkan</h3>
-          <ul>
-            <li>Pembersihan lubang (Mengangkat material yang tidak terurai atau menyumbat lubang.)</li>
-            <li>Mengaduk bahan organik untuk mempercepat dekomposisi dan mengecek kemajuan kompos.</li>
-            <li>Penggantian atau penambahan sampah organik baru secara berkala.</li>
-            <li>Memeriksa kondisi pipa/cincin pelindung, kedalaman, dan diameter lubang.</li>
-            <li>Mengangkat kompos yang sudah jadi untuk digunakan atau dijual kembali.</li>
-            <li>Menyediakan laporan kondisi biopori secara rutin setiap bulan.</li>
-          </ul>
-        `
-      }
+      } 
     };
 
     const updatePrice = () => {
@@ -150,7 +130,6 @@ export default class BioporiPage {
       }
     });
 
-    // Handle pergantian tombol layanan
     const serviceButtons = document.querySelectorAll('.biopori-services-button-container .button');
 
     serviceButtons.forEach(button => {
@@ -158,13 +137,13 @@ export default class BioporiPage {
         serviceButtons.forEach(btn => btn.classList.remove('service-button-active'));
         button.classList.add('service-button-active');
 
-        quantity = 1; // <== Tambahan untuk reset
+        quantity = 1;
         quantityElement.textContent = quantity;
 
-        updatePrice(); // Recalculate price on service change
+        updatePrice();
       });
     });
 
-    updatePrice(); // Initial price render
+    updatePrice();
   }
 }
