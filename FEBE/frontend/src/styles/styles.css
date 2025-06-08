@@ -260,6 +260,7 @@ main {
 /* OUR SERVICES */
 .background-section {
   background-color: var(--background-color);
+  margin-top: 50px;
   padding: 70px;
 }
 
@@ -1023,4 +1024,12 @@ select {
 
 .biopori-details__spesification ul li::marker {
   color: var(--title-color);
+}
+
+.buy-now-button {
+  margin-top: 20px;
+  font-size: var(--p-font);
+  width: 100%;
+  border: none;
+  border-radius: 10px;
 }
