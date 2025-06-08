@@ -46,6 +46,7 @@ export default class BioporiPage {
               <div id="biopori-details__spesification" class="biopori-details__spesification"></div>
             </div>
           </div>
+          <button id="buy-now-button" class="buy-now-button button green-button">Pesan Sekarang</button>
         </div>
       </section>
     `
