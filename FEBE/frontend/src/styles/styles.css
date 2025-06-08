@@ -81,7 +81,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
-  
+
   view-transition-name: header;
 }
 
@@ -111,7 +111,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding-inline: 55px;
-  box-shadow: 0px 1px 17px 1px rgba(0, 0, 0, 0.75);}
+  box-shadow: 0px 1px 17px 1px rgba(0, 0, 0, 0.75);
+}
 
 .logo-container {
   display: inline-flex;
@@ -212,7 +213,7 @@ main {
 
 .home-container {
   margin-top: 70px;
-  
+
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -789,8 +790,7 @@ select {
 }
 
 .cart-item__header h3,
-.cart-details h3
-{
+.cart-details h3 {
   font-size: var(--h3-font);
   font-weight: 600;
   color: var(--title-color);
@@ -815,7 +815,7 @@ select {
   align-items: center;
 
   border-radius: 999px;
-  background-color: #E61519;
+  background-color: #e61519;
 }
 
 .cart-item__close-button {
@@ -825,7 +825,7 @@ select {
   font-size: 15px;
   font-weight: 700;
   color: var(--secondary-color);
-  
+
   background: none;
   border: none;
   cursor: pointer;

@@ -1,7 +1,7 @@
-import HomePage from "../pages/home/home-page";
-import ShopPage from "../pages/shop/shop-page";
-import Scanner from "../pages/scanner/scanner-page";
-import CartPage from "../pages/cart/cart-page";
+import HomePage from '../pages/home/home-page';
+import ShopPage from '../pages/shop/shop-page';
+import Scanner from '../pages/scanner/scanner-page';
+import CartPage from '../pages/cart/cart-page';
 
 export const routes = {
   '/': () => new HomePage(),

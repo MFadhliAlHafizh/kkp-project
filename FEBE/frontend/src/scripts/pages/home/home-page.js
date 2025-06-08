@@ -11,14 +11,14 @@ export default class HomePage {
       <section id="home">
         <div class="home-container">
           <div class="home-description">
-            <h1>Lorem Ipsum Is Simply Dummy Text</h1>
+            <h1>Biorez Klasifikasi sampah Digital</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              pretium, odio vitae scelerisque aliquam, arcu dolor tempus tortor.
+              Biorez merupakan aplikasi berbasis web untuk memilah sampah secara digital hanya dengan menggunakan smartphone.
+              Biorez menggunakan teknologi pengenalan gambar untuk mengenali jenis sampah dan mengklasifikasikannya.
             </p>
             <div class="home-btn">
-              <a href="#/" class="button green-button">Shop</a>
-              <a href="#/" class="button white-button">Explore</a>
+              <a href="#/shop" class="button green-button">Shop</a>
+              <a href="#/scanner" class="button white-button">Scan</a>
             </div>
           </div>
 
@@ -37,19 +37,19 @@ export default class HomePage {
             <div class="list-fitur">
               <i class="bx bx-scan bx-lg"></i>
               <h2>Scan</h2>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p>Klasifikasi Gambar untuk pemilahan sampah</p>
             </div>
 
             <div class="list-fitur">
               <i class="bx bx-store bx-lg"></i>
               <h2>Store</h2>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p>Jual Beli barang bekas layak pakai</p>
             </div>
 
             <div class="list-fitur">
               <i class="bx bx-leaf bx-lg"></i>
               <h2>Planting</h2>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+              <p>Jasa pembuatan Biopori</p>
             </div>
           </div>
         </div>
@@ -66,24 +66,21 @@ export default class HomePage {
             <h1 class="vision-mission-title">Our Vision & Mission</h1>
             <div class="vision-mission-description">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                laboriosam voluptatum, sed eveniet recusandae
+                Program ini bertujuan mengurangi sampah ke TPA, meningkatkan kesadaran lingkungan, dan memberikan manfaat ekonomi bagi masyarakat.
               </p>
             
               <div class="vision-mission-content">
                 <h2>Vision</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                  laboriosam voluptatum, sed eveniet recusandae
+                  Mewujudkan lingkungan yang bersih, sehat, dan berkelanjutan melalui pengelolaan sampah yang bernilai.
                 </p>
               </div>
 
               <div class="vision-mission-content">
                 <h2>Mission</h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                  laboriosam voluptatum, sed eveniet recusandae
-                </p>
+                <p>Mengedukasi masyarakat tentang pentingnya memilah sampah, Mendorong budaya menabung sampah, 
+                Mengurangi sampah ke TPA melalui daur ulang, Memberikan nilai ekonomi dari sampah bagi masyarakat,
+                Membangun kemitraan untuk mendukung pengelolaan sampah terpadu.</p>
               </div>
             </div>
           </div>
@@ -104,23 +101,23 @@ export default class HomePage {
   }
 
   async afterRender() {
-      this.#presenter = new HomePresenter ({
-        view: this,
-        model: BiorezAPI,
-      });
-  
-      await this.#presenter.initialGalleryAndMap();
-    }
-  
-    populateShopItemsList(message, items) {
-      const limitedItems = items.slice(0, 6);
+    this.#presenter = new HomePresenter({
+      view: this,
+      model: BiorezAPI,
+    });
 
-      const html = limitedItems.reduce((acc, item) => {
-        return acc.concat(generateShopItemsTemplate(item, false));
-      }, '');
-  
-      document.getElementById('shop-list').innerHTML = `
+    await this.#presenter.initialGalleryAndMap();
+  }
+
+  populateShopItemsList(message, items) {
+    const limitedItems = items.slice(0, 6);
+
+    const html = limitedItems.reduce((acc, item) => {
+      return acc.concat(generateShopItemsTemplate(item, false));
+    }, '');
+
+    document.getElementById('shop-list').innerHTML = `
         <div class="shop-list">${html}</div>
       `;
-    }
+  }
 }
