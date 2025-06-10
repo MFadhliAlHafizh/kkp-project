@@ -1,4 +1,9 @@
-import { generateShopItemsTemplate, AddToCartButtonTemplate, successAddToCartButtonTemplate } from '../../template';
+import { 
+  generateShopItemsTemplate, 
+  AddToCartButtonTemplate, 
+  successAddToCartButtonTemplate,
+  generateLoaderAbsoluteTemplate
+} from '../../template';
 import * as BiorezAPI from '../../data/api';
 import ShopPresenter from './shop-presenter';
 import Database from '../../database';
@@ -24,7 +29,10 @@ export default class ShopPage {
             <button class="filter-shop-button button">Kendaraan</button>
           </div>
 
-          <div id="shop-list"></div>
+          <div class="shop-list-container">
+            <div id="shop-list"></div>
+            <div id="shop-list-loading-container"></div>
+          </div>
         </div>
       </section>
     `;
@@ -37,7 +45,7 @@ export default class ShopPage {
       dbModel: Database,
     });
 
-    await this.#presenter.initialGalleryAndMap();
+    await this.#presenter.initialShopItems();
 
     const searchInput = document.getElementById('search-shop');
     searchInput.addEventListener('input', (event) => {
@@ -99,7 +107,7 @@ export default class ShopPage {
       if (isSaved) {
         await this.#presenter.removeShopItem(itemId);
       } else {
-        await this.#presenter.saveReport(itemId);
+        await this.#presenter.saveShopItem(itemId);
       }
 
       await this.updateCartButtonState(itemId);
@@ -128,5 +136,14 @@ export default class ShopPage {
         await this.updateCartButtonState(itemId);
       }
     }
+  }
+
+  showLoading() {
+    document.getElementById('shop-list-loading-container').innerHTML =
+      generateLoaderAbsoluteTemplate();
+  }
+
+  hideLoading() {
+    document.getElementById('shop-list-loading-container').innerHTML = '';
   }
 }

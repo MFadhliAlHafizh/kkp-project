@@ -13,11 +13,11 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 });
 
 const Database = {
-  async putReport(report) {
-    if (!Object.hasOwn(report, 'id')) {
+  async putShopItem(shopItem) {
+    if (!Object.hasOwn(shopItem, 'id')) {
       throw new Error('`id` is required to save.');
     }
-    return (await dbPromise).put(OBJECT_STORE_NAME, report);
+    return (await dbPromise).put(OBJECT_STORE_NAME, shopItem);
   },
 
   async getAllShopItems() {

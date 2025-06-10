@@ -7,22 +7,16 @@ export default class HomePresenter {
       this.#model = model;
     }
 
-    async initialGalleryAndMap() {
+    async initialShopItems() {
+      this.#view.showLoading();
       try {  
         const response = await this.#model.getAllShopItems();
   
-        // if (response.error) {
-        //   console.error('initialGalleryAndMap: response:', response);
-        //   this.#view.populateReportsListError(response.message);
-        //   return;
-        // }
-  
         this.#view.populateShopItemsList(response.status, response.data);
       } catch (error) {
-        console.error('initialGalleryAndMap: error:', error);
-        // this.#view.populateReportsListError(error.status);
+        console.error('initialShopItems: error:', error);
       } finally {
-        // this.#view.hideLoading();
+        this.#view.hideLoading();
       }
     }
 }

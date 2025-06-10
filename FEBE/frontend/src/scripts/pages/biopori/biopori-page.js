@@ -1,4 +1,4 @@
-export default class BioporiPage {
+export default class BioporePage {
 
   async render() {
     return `
@@ -45,7 +45,7 @@ export default class BioporiPage {
               <div id="biopori-details__spesification" class="biopori-details__spesification"></div>
             </div>
           </div>
-          <button id="buy-now-button" class="buy-now-button button green-button">Pesan Sekarang</button>
+          <button id="order-now-button" class="order-now-button button green-button">Pesan Sekarang</button>
         </div>
       </section>
     `
@@ -145,5 +145,12 @@ export default class BioporiPage {
     });
 
     updatePrice();
+    this.orderButtonEventListener();
+  }
+
+  orderButtonEventListener() {
+    document.getElementById('order-now-button').addEventListener('click', () => {
+      alert('Fitur pemesanan belum tersedia!');
+    });
   }
 }
