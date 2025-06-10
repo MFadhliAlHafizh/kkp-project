@@ -11,7 +11,7 @@ export default class HomePage {
       <section id="home">
         <div class="home-container">
           <div class="home-description">
-            <h1>Biorez Klasifikasi sampah Digital</h1>
+            <h1>BIOPORI & <br><span>RECYCLE ZONE</span></h1>
             <p>
               Biorez merupakan aplikasi berbasis web untuk memilah sampah secara digital hanya dengan menggunakan smartphone.
               Biorez menggunakan teknologi pengenalan gambar untuk mengenali jenis sampah dan mengklasifikasikannya.
@@ -23,7 +23,7 @@ export default class HomePage {
           </div>
 
           <div class="home-img">
-            <img src="images/biorezImages/biorezLogo-green.png" alt="hero image" />
+            <img src="images/homePagesImages/heroImage.png" alt="hero image" />
           </div>
         </div>
       </section>
@@ -36,20 +36,20 @@ export default class HomePage {
           <div class="fitur">
             <div class="list-fitur">
               <i class="bx bx-scan bx-lg"></i>
-              <h2>Scan</h2>
-              <p>Klasifikasi Gambar untuk pemilahan sampah</p>
+              <h2>Pemindai</h2>
+              <p>Klasifikasi sampah organik dan anorganik</p>
             </div>
 
             <div class="list-fitur">
               <i class="bx bx-store bx-lg"></i>
-              <h2>Store</h2>
-              <p>Jual Beli barang bekas layak pakai</p>
+              <h2>Toko</h2>
+              <p>Jual beli barang bekas layak pakai</p>
             </div>
 
             <div class="list-fitur">
               <i class="bx bx-leaf bx-lg"></i>
-              <h2>Planting</h2>
-              <p>Jasa pembuatan Biopori</p>
+              <h2>Biopori</h2>
+              <p>Menawarkan pembelian, dan pemasangan Biopori</p>
             </div>
           </div>
         </div>
@@ -57,30 +57,24 @@ export default class HomePage {
 
       <!-- VISION & MISSION -->
       <section id="vision-mission">
-        <div class="visi-misi-container">
+        <div class="vision-mission-container">
           <div class="vision-mission-image">
-            <img src="images/biorezImages/biorezLogo-green.png" alt="image-content" />
+            <img src="images/homePagesImages/visionMissionImage.png" alt="image-content" />
           </div>
 
           <div class="vision-mission-body">
-            <h1 class="vision-mission-title">Our Vision & Mission</h1>
-            <div class="vision-mission-description">
-              <p>
-                Program ini bertujuan mengurangi sampah ke TPA, meningkatkan kesadaran lingkungan, dan memberikan manfaat ekonomi bagi masyarakat.
-              </p>
-            
               <div class="vision-mission-content">
-                <h2>Vision</h2>
-                <p>
-                  Mewujudkan lingkungan yang bersih, sehat, dan berkelanjutan melalui pengelolaan sampah yang bernilai.
+                <h2>Visi</h2>
+                <p class="vision-description">
+                  Menjadi platform digital terdepan dalam mendorong gaya hidup ramah lingkungan melalui inovasi pemilahan sampah, pemanfaatan limbah, dan pemasyarakatan biopori secara berkelanjutan di Indonesia.
                 </p>
               </div>
 
               <div class="vision-mission-content">
-                <h2>Mission</h2>
-                <p>Mengedukasi masyarakat tentang pentingnya memilah sampah, Mendorong budaya menabung sampah, 
-                Mengurangi sampah ke TPA melalui daur ulang, Memberikan nilai ekonomi dari sampah bagi masyarakat,
-                Membangun kemitraan untuk mendukung pengelolaan sampah terpadu.</p>
+                <h2>Misi</h2>
+                <p class="mission-description">
+                  BIOREZ bertujuan meningkatkan kesadaran masyarakat tentang pemilahan sampah melalui fitur pemindai pintar dan menyediakan solusi daur ulang lewat marketplace barang bekas serta layanan biopori. Platform ini juga menghadirkan edukasi berkelanjutan terkait perawatan dan pengisian ulang biopori. Dengan pendekatan kolaboratif, BIOREZ membangun ekosistem digital yang mendukung gaya hidup ramah lingkungan.
+                </p>
               </div>
             </div>
           </div>

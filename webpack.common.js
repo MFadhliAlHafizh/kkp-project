@@ -21,10 +21,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './FEBE/frontend/src/index.html'),
     }),
-    // new HtmlWebpackPlugin({
-    //   template: path.join(__dirname, './FEBE/frontend/src/biopori.html'),
-    //   filename: 'biopori.html',
-    // }),
 
     new CopyWebpackPlugin({
       patterns: [
