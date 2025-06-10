@@ -28,11 +28,11 @@
 
   /* VISSION & MISSION */
   .vision-mission-image {
-    flex-basis: 40%;
+    /* flex-basis: 40%; */
   }
 
   .vision-mission-body {
-    flex-basis: 60%;
+    /* flex-basis: 60%; */
   }
 
   /* SHOP */
@@ -170,10 +170,20 @@
     justify-content: center;
   }
 
+  /* OUR SERVICE */
+  .fitur {
+    flex-direction: column;
+  }
+
   /* VISSION & MISSION */
-  .visi-misi-container {
+  .vision-mission-container {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
+  }
+
+  .vision-mission-image img {
+    width: 70%;
   }
 
   /* SHOP */
@@ -372,6 +382,7 @@
 
   .footer-detail {
     flex-direction: column;
+    gap: 2rem;
   }
 
   .footer-copyright {
