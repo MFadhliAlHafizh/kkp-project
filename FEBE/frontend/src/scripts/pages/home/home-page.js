@@ -1,4 +1,4 @@
-import { generateShopItemsTemplate } from '../../template';
+import { generateShopItemsTemplate, generateLoaderAbsoluteTemplate } from '../../template';
 import * as BiorezAPI from '../../data/api';
 import HomePresenter from './home-presenter';
 
@@ -23,7 +23,7 @@ export default class HomePage {
           </div>
 
           <div class="home-img">
-            <img src="images/homePagesImages/heroImage.png" alt="hero image" />
+            <img src="images/homePageImages/heroImage.png" alt="hero image" />
           </div>
         </div>
       </section>
@@ -59,7 +59,7 @@ export default class HomePage {
       <section id="vision-mission">
         <div class="vision-mission-container">
           <div class="vision-mission-image">
-            <img src="images/homePagesImages/visionMissionImage.png" alt="image-content" />
+            <img src="images/homePageImages/visionMissionImage.png" alt="image-content" />
           </div>
 
           <div class="vision-mission-body">
@@ -90,6 +90,7 @@ export default class HomePage {
           <div class="shop-item__button">
             <a href="#/shop" class="button green-button">All Items</a>
           </div>
+          <div id="shop-list-loading-container"></div>
       </section>
     `;
   }
@@ -100,7 +101,7 @@ export default class HomePage {
       model: BiorezAPI,
     });
 
-    await this.#presenter.initialGalleryAndMap();
+    await this.#presenter.initialShopItems();
   }
 
   populateShopItemsList(message, items) {
@@ -113,5 +114,14 @@ export default class HomePage {
     document.getElementById('shop-list').innerHTML = `
         <div class="shop-list">${html}</div>
       `;
+  }
+
+  showLoading() {
+    document.getElementById('shop-list-loading-container').innerHTML =
+      generateLoaderAbsoluteTemplate();
+  }
+
+  hideLoading() {
+    document.getElementById('shop-list-loading-container').innerHTML = '';
   }
 }

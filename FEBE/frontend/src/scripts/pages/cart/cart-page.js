@@ -30,7 +30,7 @@ export default class CartPage {
                   <p id="cart-details__total-price" class="cart-details__total-price">-</p>
                 </div>
                 <hr />
-                <button class="button green-button cart-details__button">Beli</button>
+                <button id="cart-details__button" class="button green-button cart-details__button">Beli</button>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@ export default class CartPage {
       view: this,
       dbModel: Database,
     });
-    await this.#presenter.initialGalleryAndMap();
+    await this.#presenter.initialShopItems();
     this.#deleteItemFromDatabase();
   }
   
@@ -67,6 +67,7 @@ export default class CartPage {
     `;
 
     document.getElementById('cart-details__total-price').textContent = `Rp${totalPrice.toLocaleString('id-ID')}`;
+    this.buyButtonEventListener();
   }
 
   #deleteItemFromDatabase() {
@@ -84,7 +85,13 @@ export default class CartPage {
       if (!confirmDelete) return;
 
       await this.#presenter.removeShopItem(itemId);
-      await this.#presenter.initialGalleryAndMap();
+      await this.#presenter.initialShopItems();
+    });
+  }
+
+  buyButtonEventListener() {
+    document.getElementById('cart-details__button').addEventListener('click', () => {
+      alert('Fitur pembelian belum tersedia!');
     });
   }
 }

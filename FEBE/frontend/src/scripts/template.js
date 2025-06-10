@@ -1,3 +1,15 @@
+export function generateLoaderTemplate() {
+  return `
+    <div class="loader"></div>
+  `;
+}
+
+export function generateLoaderAbsoluteTemplate() {
+  return `
+    <div class="loader loader-absolute"></div>
+  `;
+}
+
 export function generateShopItemsTemplate(item, showCartButton = true) {
   return `
     <div class="shop-item" data-itemId="${item.id}">

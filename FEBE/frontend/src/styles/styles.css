@@ -36,6 +36,43 @@
   }
 }
 
+/* Loader */
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  text-align: center;
+}
+
+.loader::after {
+  content: '';
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #d4d4d4aa;
+  border-bottom-color: var(--main-color);
+  border-radius: 100%;
+
+  animation: rotation 1s linear infinite;
+}
+
+.loader.loader-absolute::after {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+i.loader-button {
+  animation: rotation 1s linear infinite;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -1022,7 +1059,7 @@ select {
   color: var(--title-color);
 }
 
-.buy-now-button {
+.order-now-button {
   margin-top: 20px;
   font-size: var(--p-font);
   width: 100%;

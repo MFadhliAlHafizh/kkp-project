@@ -10,13 +10,16 @@ export default class ShopPresenter {
     this.#dbModel = dbModel;
   }
 
-  async initialGalleryAndMap() {
+  async initialShopItems() {
+    this.#view.showLoading();
     try {
       const response = await this.#apiModel.getAllShopItems();
       this.#allItems = response.data;
       this.#view.populateShopItemsList(response.message, this.#allItems);
     } catch (error) {
-      console.error('initialGalleryAndMap: error:', error);
+      console.error('initialShopItems: error:', error);
+    } finally {
+      this.#view.hideLoading();
     }
   }
 
@@ -34,19 +37,19 @@ export default class ShopPresenter {
     this.#view.populateShopItemsList('Filtered items', filteredItems);
   }
 
-  async saveReport(itemId) {
+  async saveShopItem(itemId) {
     try {
-      const report = await this.#apiModel.getShopItemById(itemId);
+      const shopItem = await this.#apiModel.getShopItemById(itemId);
 
       const shopItemData = {
         id: itemId,
-        ...report.shopItem,
+        ...shopItem.shopItem,
       };
 
-      await this.#dbModel.putReport(shopItemData);
+      await this.#dbModel.putShopItem(shopItemData);
       // this.#view.saveToBookmarkSuccessfully('Success to save to Cart');
     } catch (error) {
-      console.error('saveReport: error:', error);
+      console.error('saveShopItem: error:', error);
     }
   }
 

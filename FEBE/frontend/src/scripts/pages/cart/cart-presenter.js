@@ -7,22 +7,15 @@ export default class CartPresenter {
     this.#dbModel = dbModel;
   }
  
-  async initialGalleryAndMap() {
-    // this.#view.showReportsListLoading();
- 
+  async initialShopItems() {
     try {
       const listOfShopItems = await this.#dbModel.getAllShopItems();
-      //   const shopItems = await Promise.all(listOfShopItems.map(reportMapper));
       const message = 'Berhasil menambahkan pesanan.';
       
       this.#view.populateShopItemsList(message, listOfShopItems);
-      //   this.#view.populateBookmarkedReports(message, shopItems);
     } catch (error) {
-      console.error('initialGalleryAndMap: error:', error);
-    //   this.#view.populateBookmarkedReportsError(error.message);
-    } finally {
-    //   this.#view.hideReportsListLoading();
-    }
+      console.error('initialShopItems: error:', error);
+    } 
   }
 
   async removeShopItem(itemId) {
