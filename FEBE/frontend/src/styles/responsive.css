@@ -3,7 +3,6 @@
     --h1-font: 2.7rem;
     --h2-font: 1.8rem;
     --h3-font: 1.4rem;
-    --p-font: 1rem;
   }
 
   /* NAVIGATION BAR */
@@ -23,23 +22,17 @@
 
   /* NAVIGATION BAR */
   .navigation-container .nav-menu {
-    gap: 40px;
-  }
-
-  /* VISSION & MISSION */
-  .vision-mission-image {
-    /* flex-basis: 40%; */
-  }
-
-  .vision-mission-body {
-    /* flex-basis: 60%; */
+    gap: 30px;
   }
 
   /* SHOP */
-  .filter-shop-button-container button {
-    width: 50%;
-    height: 40px;
-    padding: 0;
+  .filter-shop-button-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .filter-shop-button-list {
+    gap: 20px;
   }
   .shop-list {
     grid-template-columns: repeat(2, 1fr);
@@ -166,6 +159,14 @@
     order: -1;
   }
 
+  .home-img img {
+    width: 90%;
+  }
+  
+  .home-btn a {
+    margin: auto;
+  }
+
   .home-btn {
     justify-content: center;
   }
@@ -184,13 +185,6 @@
 
   .vision-mission-image img {
     width: 70%;
-  }
-
-  /* SHOP */
-  .filter-shop-button-container button {
-    width: 40%;
-    height: 40px;
-    padding: 0;
   }
 
   /* FOOTER */
@@ -251,11 +245,9 @@
   }
 
   /* SHOP */
-  .filter-shop-button-container button {
-    width: 30%;
-    height: 40px;
-    border-radius: 8px;
-    padding: 0;
+  .filter-shop-button {
+    padding: 10px 30px;
+    font-size: 0.8rem !important;
   }
 
   .cart-list-display,
@@ -278,11 +270,6 @@
 
   .footer-law {
     gap: 30px;
-  }
-
-  /* SCANNER */
-  .scanner-container h1 {
-    font-size: 2rem;
   }
 }
 
@@ -307,14 +294,6 @@
     display: none;
   }
 
-  .vision-mission-body h1 {
-    font-size: var(--h1-font);
-  }
-
-  .vision-mission-body h2 {
-    font-size: var(--h2-font);
-  }
-
   .vision-mission-body p {
     font-size: var(--p-font);
   }
@@ -324,26 +303,15 @@
     width: 80%;
   }
 
+  .filter-shop-button-list {
+    flex-direction: column;
+  }
+
   .shop-item__cart-button i {
     font-size: 22px;
   }
 
-  .filter-shop-button-container {
-    gap: 10px;
-  }
-
-  .filter-shop-button-container button {
-    width: 50%;
-    height: 30px;
-    border-radius: 5px;
-    padding: 0;
-  }
-
   /* OUR SERVICE */
-  .service-container h1 {
-    font-size: var(--h1-font);
-  }
-
   .list-fitur h2 {
     font-size: var(--h2-font);
   }
@@ -354,12 +322,7 @@
 
   /* SHOP & SCANNER*/
   .shop-item__image img {
-    /* width: 100px; */
     width: 80%;
-  }
-
-  .scanner-container h1 {
-    font-size: 1.5rem;
   }
 
   .new-form__documentations__outputs {

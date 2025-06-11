@@ -9,7 +9,7 @@ export default class CartPage {
       return `
         <section id="cart" class="cart background-section">
           <div class="cart-container">
-            <h1>Shopping Cart</h1>
+            <h1 class="section-title">Shopping Cart</h1>
 
             <div class="cart-list-container">
               <div class="cart-list">
