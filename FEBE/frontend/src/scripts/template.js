@@ -18,15 +18,19 @@ export function generateShopItemsTemplate(item, showCartButton = true) {
       </div>
       <div class="shop-item__body">
         <h3 class="shop-item__name">${item.itemName}</h3>
-        <p class="shop-item__description">Lorem ipsum dolor sit amet.</p>
+        <p class="shop-item__description">${item.description}</p>
         <h3 class="shop-item__price">Rp${item.price.toLocaleString('id-ID')}</h3>
-        ${showCartButton ? `
+        ${
+          showCartButton
+            ? `
         <div id="shop-item__cart-button-container" class="shop-item__cart-button-container">
           <button class="shop-item__cart-button button green-button">
             <i class="bx bx-cart"></i>
             Add to Cart
           </button>
-        </div>` : ''}
+        </div>`
+            : ''
+        }
       </div>
     </div>
   `;
@@ -45,7 +49,7 @@ export function generateCartItemsTemplate(item) {
       <div class="cart-item__body">
         <h3 class="cart-item__name">${item.itemName}</h3>
         <p class="cart-item-description">
-          Lorem ipsum dolor sit amet.
+          ${item.description}
         </p>
         <h2 class="cart-item__price">Rp${item.price.toLocaleString('id-ID')}</h3>
       </div>
@@ -59,7 +63,7 @@ export function generateCartDetailsOrderTemplate(item) {
       <p class="cart-details__name">${item.itemName}</p>
       <p class="cart-details__price">Rp${item.price.toLocaleString('id-ID')}</p>
     </div>
-  `
+  `;
 }
 
 export function AddToCartButtonTemplate() {
@@ -68,7 +72,7 @@ export function AddToCartButtonTemplate() {
       <i class="bx bx-cart"></i>
       Add to Cart
     </button>
-  `
+  `;
 }
 
 export function successAddToCartButtonTemplate() {
@@ -77,5 +81,5 @@ export function successAddToCartButtonTemplate() {
       <i class="bx bx-cart"></i>
       Success
     </button>
-  `
+  `;
 }

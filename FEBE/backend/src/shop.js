@@ -6,6 +6,8 @@ const shopItems = [
     category: 'kendaraan',
     imageUrl: 'images/shopImages/kendaraan/sepeda.jpg',
     itemName: 'Sepeda',
+    description:
+      'Nikmati petualangan di jalur off-road dengan sepeda mountain bike berukuran 26 inci ini. Rangka kokoh dan desain ergonomis menjadikannya pilihan ideal untuk penggemar aktivitas luar ruangan. Dalam kondisi baik, sudah diservis, dan siap pakai.',
     price: 1500000,
   },
   {
@@ -13,6 +15,8 @@ const shopItems = [
     category: 'kendaraan',
     imageUrl: 'images/shopImages/kendaraan/motor.jpg',
     itemName: 'Motor',
+    description:
+      'Dapatkan pengalaman berkendara yang menyenangkan dengan motor Honda ini. Desain sporty dan mesin bertenaga menjadikannya pilihan ideal untuk perjalanan sehari-hari. Dalam kondisi baik, sudah diservis, dan siap untuk digunakan.',
     price: 1500000,
   },
   {
@@ -20,6 +24,8 @@ const shopItems = [
     category: 'kendaraan',
     imageUrl: 'images/shopImages/kendaraan/mobil.jpeg',
     itemName: 'Mobil',
+    description:
+      'Tawarkan kenyamanan dan ruang yang luas dengan Toyota Avanza ini. Cocok untuk keluarga atau perjalanan bersama teman, mobil ini dalam kondisi baik dan siap pakai. Dengan performa handal dan efisiensi bahan bakar yang baik, ini adalah pilihan yang tepat untuk kebutuhan sehari-hari.',
     price: 150000000,
   },
   {
@@ -27,6 +33,7 @@ const shopItems = [
     category: 'elektronik',
     imageUrl: 'images/shopImages/elektronik/televisi.jpeg',
     itemName: 'TV Bekas',
+    description: 'Nikmati pengalaman menonton yang luar biasa dengan TV 43 inci ini. Dalam kondisi baik, gambar jernih, dan dilengkapi dengan berbagai fitur pintar. Siap untuk menghibur keluarga Anda.',
     price: 2500000,
   },
   {
@@ -34,6 +41,7 @@ const shopItems = [
     category: 'elektronik',
     imageUrl: 'images/shopImages/elektronik/handphone.jpg',
     itemName: 'Hp second',
+    description: 'Dapatkan performa luar biasa dengan hp ini. Dalam kondisi baik, layar luas, dan kamera yang mumpuni. Ideal untuk kebutuhan sehari-hari dan hiburan.',
     price: 2000000,
   },
   {
@@ -41,6 +49,7 @@ const shopItems = [
     category: 'elektronik',
     imageUrl: 'images/shopImages/elektronik/leptop.jpeg',
     itemName: 'Leptop second',
+    description: 'Laptop ini menawarkan performa yang handal untuk pekerjaan dan hiburan. Dalam kondisi baik dengan spesifikasi yang memadai, siap untuk menemani aktivitas Anda.',
     price: 3000000,
   },
   {
@@ -48,6 +57,7 @@ const shopItems = [
     category: 'elektronik',
     imageUrl: 'images/shopImages/elektronik/kipas-angin.jpeg',
     itemName: 'Kipas second',
+    description: 'Kipas angin ini memberikan sirkulasi udara yang nyaman di ruangan Anda. Dalam kondisi baik, sederhana namun efektif untuk mengatasi panas.',
     price: 150000,
   },
   {
@@ -55,6 +65,7 @@ const shopItems = [
     category: 'elektronik',
     imageUrl: 'images/shopImages/elektronik/mesin-cuci.jpeg',
     itemName: 'Mesin cuci second',
+    description: 'Mesin cuci ini memudahkan mencuci pakaian Anda. Dalam kondisi baik, efisien, dan siap membantu pekerjaan rumah tangga Anda.',
     price: 1500000,
   },
   {
@@ -62,6 +73,7 @@ const shopItems = [
     category: 'pakaian',
     imageUrl: 'images/shopImages/pakaian/hoodie.jpg',
     itemName: 'Hoodie Second',
+    description: 'Tampil stylish dan nyaman dengan hoodie ini. Dalam kondisi baik, cocok untuk suasana santai atau olahraga.',
     price: 75000,
   },
   {
@@ -69,6 +81,7 @@ const shopItems = [
     category: 'pakaian',
     imageUrl: 'images/shopImages/pakaian/baju.jpg',
     itemName: 'Baju Second',
+    description: 'Baju ini menawarkan desain modern dan nyaman dipakai. Dalam kondisi baik, cocok untuk berbagai acara.',
     price: 55000,
   },
   {
@@ -76,6 +89,7 @@ const shopItems = [
     category: 'pakaian',
     imageUrl: 'images/shopImages/pakaian/celana-levis.jpg',
     itemName: 'Celana levis Second',
+    description: 'Celana Levis ini adalah pilihan klasik yang tak lekang oleh waktu. Dalam kondisi baik, nyaman dan cocok untuk berbagai gaya.',
     price: 65000,
   },
   {
@@ -83,6 +97,7 @@ const shopItems = [
     category: 'pakaian',
     imageUrl: 'images/shopImages/pakaian/celana-pendek.jpeg',
     itemName: 'Celana pendek Second',
+    description: 'Celana pendek ini cocok untuk cuaca hangat. Dalam kondisi baik, nyaman dan stylish untuk kegiatan santai.',
     price: 35000,
   },
   {
@@ -90,6 +105,7 @@ const shopItems = [
     category: 'pakaian',
     imageUrl: 'images/shopImages/pakaian/jaket.jpeg',
     itemName: 'Jaket Second',
+    description: 'Jaket ini menawarkan gaya sporty dan kenyamanan. Dalam kondisi baik, ideal untuk aktivitas luar ruangan.',
     price: 75000,
   },
   {
@@ -97,6 +113,7 @@ const shopItems = [
     category: 'pakaian',
     imageUrl: 'images/shopImages/pakaian/kemeja.jpg',
     itemName: 'Kemeja Second',
+    description: 'Kemeja ini sempurna untuk acara formal maupun kasual. Dalam kondisi baik, memberikan kesan rapi dan stylish.',
     price: 65000,
   },
 ];
