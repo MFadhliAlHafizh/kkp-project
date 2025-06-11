@@ -68,7 +68,7 @@ export function generateCartDetailsOrderTemplate(item) {
 
 export function AddToCartButtonTemplate() {
   return `
-    <button class="shop-item__cart-button button green-button">
+    <button class="shop-item__cart-button button">
       <i class="bx bx-cart"></i>
       Add to Cart
     </button>
@@ -77,8 +77,8 @@ export function AddToCartButtonTemplate() {
 
 export function successAddToCartButtonTemplate() {
   return `
-    <button class="shop-item__cart-button button green-button" disabled>
-      <i class="bx bx-cart"></i>
+    <button class="shop-item__cart-button button" disabled>
+      <i class='bx bx-check-circle'></i>
       Success
     </button>
   `;

@@ -29,7 +29,7 @@ export default class HomePage {
       <!-- OUR SERVICES -->
       <section id="services" class="services background-section">
         <div class="service-container">
-          <h1 class="section-title">Our Service</h1>
+          <h1 class="section-title">Our Services</h1>
 
           <div class="fitur">
             <div class="list-fitur">
