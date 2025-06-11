@@ -4,13 +4,8 @@ export default class BioporePage {
     return `
       <section id="biopori" class="biopori background-section">
         <div class="biopori-container">
-          <h1>Biopori</h1>
-          <div class="biopori-header">
-            <img
-              src="images/biorezImages/biorezLogo-green.png"
-              alt="biopori-services-image"
-            />
-          </div>
+          <h1 class="section-title">Biopore</h1>
+          <div id="biopori-header" class="biopori-header"></div>
           <div class="biopori-line"></div>
           <div class="biopori-body">
             <div class="biopori-button-container">
@@ -58,6 +53,7 @@ export default class BioporePage {
     const decrementButton = document.getElementById('decrement-button');
     const quantityElement = document.getElementById('quantity');
     
+    const bioporiImage = document.getElementById('biopori-header');
     const priceElement = document.getElementById('biopori-details__price');
 
     const pembelianButton = document.getElementById('biopori-pembelian-button');
@@ -71,6 +67,10 @@ export default class BioporePage {
 
     const updateContent = () => {
       if (pembelianButton.classList.contains('service-button-active')) {
+        bioporiImage.innerHTML = `
+          <img src="images/bioporePageImages/bioporePipeImage.png" alt="biopori pipe image"/>
+        `
+
         basePrice = 20000;
         quantityContainer.style.display = 'flex';
         
@@ -89,8 +89,11 @@ export default class BioporePage {
           </ul>
         `
       } else if (pemasanganButton.classList.contains('service-button-active')) {
-        basePrice = 75000;
-        quantityContainer.style.display = 'none';
+        bioporiImage.innerHTML = `
+          <img src="images/bioporePageImages/bioporePlantingImage.png" alt="biopori planting image"/>
+        `
+
+        basePrice = 100000;
         
         descriptionText.textContent = `
           Layanan pemasangan biopori profesional yang cepat dan tepat. Solusi ideal untuk mengurangi genangan air dan mendukung pelestarian lingkungan.

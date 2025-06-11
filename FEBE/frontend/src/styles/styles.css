@@ -16,8 +16,8 @@
   --secondary-color: #ffffff;
   --background-color: #eefdee;
 
-  --title-color: #260701;
-  --text-color: #774936;
+  --title-color: #000000;
+  --text-color: #434343;
   --hover-color: #59e17e;
   --inactive-color: #ced4da;
 
@@ -96,10 +96,9 @@ section {
   color: var(--secondary-color);
 }
 
-/* .green-button:hover {
-  background: var(--hover-color);
-  color: var(--main-color);
-} */
+.green-button:hover {
+  transform: scale(.9);
+}
 
 .white-button {
   background: var(--secondary-color);
@@ -110,6 +109,13 @@ section {
 .white-button:hover {
   background: var(--main-color);
   color: var(--secondary-color);
+}
+
+.section-title {
+  text-align: center;
+  color: var(--title-color);
+  font-size: var(--h1-font);
+  margin-bottom: 3rem;
 }
 
 /* NAVIGATION BAR */
@@ -184,19 +190,16 @@ nav {
   font-weight: 300;
   color: var(--main-color);
 
-  /* background-color: #207a39; */
   transition: 0.3s ease-in-out;
 }
 
 .navigation-container .nav-menu li .inactive:hover {
-  /* color: var(--title-color); */
   text-shadow: 0 0 2px var(--main-color);
 }
 
 .navigation-container .nav-menu li .active {
   font-weight: bold;
   border-bottom: 4px solid var(--main-color);
-  /* color: var(--title-color); */
 }
 
 .header-button {
@@ -216,7 +219,6 @@ nav {
   padding: 10px 40px;
   width: 100%;
   color: var(--secondary-color);
-  /* background-color: crimson; */
 }
 
 .header-button i {
@@ -263,6 +265,7 @@ main {
 .home-description h1 {
   font-size: var(--h1-font);
   color: var(--title-color);
+  letter-spacing: 3px;
 }
 
 .home-description h1 span {
@@ -273,16 +276,16 @@ main {
   margin: 15px 0 50px;
   font-size: var(--p-font);
   color: var(--text-color);
-  line-height: 2rem;
-}
-
-.home-btn {
-  display: flex;
-  gap: 30px;
+  line-height: 1.8rem;
 }
 
 .home-btn a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 999px;
+  width: 150px;
+  box-shadow: var(--hover-color) 0px 1px 25px;
 }
 
 .home-img {
@@ -292,7 +295,7 @@ main {
 }
 
 .home-img img {
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 
@@ -303,16 +306,7 @@ main {
   padding: 70px;
 }
 
-.service-container h1 {
-  text-align: center;
-  color: var(--title-color);
-  font-size: var(--h1-font);
-  margin-bottom: 3rem;
-}
-
 .fitur {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
   display: flex;
   gap: 2rem;
   text-align: center;
@@ -324,9 +318,9 @@ main {
   margin-bottom: 15px;
 }
 
-.list-fitur h2 {
+.list-fitur h3 {
   color: var(--title-color);
-  font-size: var(--h2-font);
+  font-size: var(--h3-font);
   font-weight: 500;
 }
 
@@ -338,6 +332,7 @@ main {
 /* VISION & MISSION */
 .vision-mission-container {
   display: flex;
+  align-items: center;
   gap: 3rem;
 }
 
@@ -353,7 +348,7 @@ main {
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
 }
 
 .vision-mission-content h2 {
@@ -366,17 +361,10 @@ main {
   margin-top: 0.8rem;
   color: var(--text-color);
   font-size: var(--p-font);
-  line-height: 2rem;
+  line-height: 1.8rem;
 }
 
 /* SHOP */
-.shop-container h1 {
-  font-size: var(--h1-font);
-  color: var(--title-color);
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
 .search-btn {
   text-align: center;
 }
@@ -392,20 +380,27 @@ main {
 .filter-shop-button-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 40px;
   margin-block: 40px;
 }
 
-.filter-shop-button-container button {
+.filter-shop-button-list {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+}
+
+.filter-shop-button {
+  width: 100%;
   background-color: var(--inactive-color);
   color: #000000;
   border: none;
   border-radius: 10px;
   font-size: var(--p-font);
-  font-weight: bold;
 }
 
-.filter-shop-button-container .filter-active {
+.filter-shop-button-list .filter-active {
   background-color: var(--main-color);
   color: var(--secondary-color);
 }
@@ -414,6 +409,7 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  justify-self: center;
   text-align: center;
 }
 
@@ -460,9 +456,12 @@ main {
 }
 
 .shop-item__cart-button:disabled {
-  /* background-color: gray; */
   cursor: not-allowed;
   opacity: 0.7;
+}
+
+.shop-item__cart-button:disabled:hover {
+  transform: scale(1);
 }
 
 .shop-item__cart-button i {
@@ -472,13 +471,19 @@ main {
 }
 
 .shop-item__button {
-  display: flex;
-  justify-content: center;
   margin-top: 4rem;
 }
 
 .shop-item__button a {
-  border-radius: 999px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.shop-item__button a:hover {
+  transform: scale(.98);
 }
 
 /* FOOTER */
@@ -588,7 +593,6 @@ footer {
 
 .footer-law {
   display: flex;
-  /* flex-wrap: wrap; */
   gap: 70px;
 }
 
@@ -602,19 +606,16 @@ footer {
 }
 
 /* SCANNER */
-.scanner-container h1 {
-  font-size: var(--h1-font);
-  color: var(--title-color);
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
 .new-form__camera__video {
   width: 100%;
   background-color: rgb(166, 154, 154);
   border-radius: 10px;
   border: 4px solid var(--main-color);
   display: block;
+
+  background-image: url('../../../../public/images/placeholderScannerPageImages.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .new-form__camera__canvas {
@@ -788,15 +789,7 @@ select {
 }
 
 /* CART */
-.cart-container h1 {
-  font-size: var(--h1-font);
-  color: var(--title-color);
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
 .cart-list-container {
-  /* background-color: crimson; */
   display: flex;
   gap: 20px;
 }
@@ -809,7 +802,6 @@ select {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  /* flex-basis: 50%; */
   gap: 20px;
 }
 
@@ -932,14 +924,11 @@ select {
   font-size: var(--p-font);
 }
 
-/* BIOPORI */
-.biopori-container h1 {
-  font-size: var(--h1-font);
-  color: var(--title-color);
-  margin-bottom: 3rem;
-  text-align: center;
+.cart-details__button:hover {
+  transform: scale(.98);
 }
 
+/* BIOPORI */
 .biopori-header img {
   max-width: 300px;
   margin: auto;
@@ -1044,7 +1033,7 @@ select {
 .biopori-details__spesification ul li {
   font-size: var(--p-font);
   color: var(--text-color);
-  line-height: 2rem;
+  line-height: 1.8rem;
 }
 
 .biopori-details__spesification ul {
@@ -1065,4 +1054,8 @@ select {
   width: 100%;
   border: none;
   border-radius: 10px;
+}
+
+.order-now-button:hover {
+  transform: scale(.98);
 }
