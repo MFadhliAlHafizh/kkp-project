@@ -57,7 +57,7 @@ export default class HomePage {
       <section id="vision-mission">
         <div class="vision-mission-container">
           <div class="vision-mission-image">
-            <img src="images/homePageImages/visionMissionImage.png" alt="image-content" />
+            <img src="images/homePageImages/visionMissionImage.png" alt="vision Mission Image" />
           </div>
 
           <div class="vision-mission-body">
@@ -115,8 +115,7 @@ export default class HomePage {
   }
 
   showLoading() {
-    document.getElementById('shop-list-loading-container').innerHTML =
-      generateLoaderAbsoluteTemplate();
+    document.getElementById('shop-list-loading-container').innerHTML = generateLoaderAbsoluteTemplate();
   }
 
   hideLoading() {
