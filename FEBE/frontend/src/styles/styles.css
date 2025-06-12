@@ -764,9 +764,6 @@ select {
 .scan-results-description .trash-type {
   padding: 5px 40px;
   margin-block: 10px;
-  /* color: var(--main-color);
-  background-color: #207a3998;
-  border: 2px solid var(--main-color); */
   border-radius: 10px;
   font-size: var(--p-font);
   font-weight: 600;
