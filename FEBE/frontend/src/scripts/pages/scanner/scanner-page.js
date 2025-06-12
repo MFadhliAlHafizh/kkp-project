@@ -12,8 +12,7 @@ export default class Scanner {
   #model = null;
   #isModelLoading = false;
   #isModelLoaded = false;
-
-  #trashClasses = ['Organik', 'Anorganik'];
+  #trashClasses = ['Anorganik', 'Organik'] 
 
   constructor() {
     this.#loadFromLocalStorage();
@@ -46,7 +45,7 @@ export default class Scanner {
       console.log('Model loaded successfully!');
 
       // Warm up model dengan prediksi dummy
-      const dummyInput = tf.zeros([1, 150, 150, 3]);
+      const dummyInput = tf.zeros([1, 224, 224, 3]);
       await this.#model.execute({ inputs: dummyInput });
       dummyInput.dispose();
     } catch (error) {
@@ -67,10 +66,15 @@ export default class Scanner {
 
     try {
       // Preprocess gambar
-      const tensor = tf.browser.fromPixels(imageElement).resizeNearestNeighbor([150, 150]).expandDims(0).div(255.0); // Normalisasi
+      const tensor = tf.tidy(() => tf.browser.fromPixels(imageElement)
+        .resizeNearestNeighbor([224, 224])
+        .toFloat()
+        .div(255.0)
+        .expandDims(0)); // Normalisasi
 
       // Prediksi
       const predictions = await this.#model.predict(tensor).data();
+      console.log('Raw predictions:', predictions);
 
       // Bersihkan tensor
       tensor.dispose();
@@ -100,8 +104,8 @@ export default class Scanner {
 
   #generateDescription(className, confidence) {
     const descriptions = {
-      Organik: 'Sampah yang dapat terurai secara alami. Cocok untuk kompos.',
       Anorganik: 'Sampah yang tidak dapat terurai. Perlu penanganan khusus.',
+      Organik: 'Sampah yang dapat terurai secara alami. Cocok untuk kompos.',
       Error: 'Terjadi kesalahan dalam proses klasifikasi.',
     };
 
@@ -121,7 +125,7 @@ export default class Scanner {
       <section id="scanner" class="scanner background-section">
         <form id="new-form" class="new-form">
           <div class="scanner-container">
-            <h1 class="section-title">Scanner</h1>
+            <h1>Klasifikasi Sampah</h1>
             ${this.#isModelLoading ? '<div class="loading-indicator">Memuat model AI...</div>' : ''}
             <div class="new-form__documentations__container">
               <div id="camera-container" class="new-form__camera__container">
