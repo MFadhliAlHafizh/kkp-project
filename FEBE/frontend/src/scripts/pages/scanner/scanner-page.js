@@ -277,7 +277,7 @@ export default class Scanner {
             </div>
             <div class="scan-results-description">
               <h3>${className}</h3>
-              <p class="trash-type">${className} (${confidence}%)</p>
+              <p class="trash-type ${className === 'Organik' ? 'organik' : className === 'Anorganik' ? 'anorganik' : ''}">${className} (${confidence}%)</p>
               <p class="trash-description">
                 ${description}
               </p>

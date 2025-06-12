@@ -764,9 +764,6 @@ select {
 .scan-results-description .trash-type {
   padding: 5px 40px;
   margin-block: 10px;
-  color: var(--main-color);
-  background-color: #207a3998;
-  border: 2px solid var(--main-color);
   border-radius: 10px;
   font-size: var(--p-font);
   font-weight: 600;
@@ -774,13 +771,13 @@ select {
   display: inline-block;
 }
 
-.scan-results-description .trash-type .organik {
+.scan-results-description .trash-type.organik {
   color: var(--main-color);
   background-color: #207a3998;
   border: 2px solid var(--main-color);
 }
 
-.scan-results-description .trash-type .anorganik {
+.scan-results-description .trash-type.anorganik {
   color: #ffd000;
   background-color: #ffd0004a;
   border: 2px solid #ffd000;
