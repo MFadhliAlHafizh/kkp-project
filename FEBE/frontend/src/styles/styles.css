@@ -733,6 +733,7 @@ select {
 }
 
 .new-form__documentations__outputs-item {
+  position: relative;
   background-color: var(--secondary-color);
   padding: 20px;
   border-radius: 10px;
@@ -754,11 +755,6 @@ select {
   object-position: center;
 
   transition: 150ms ease-in-out;
-}
-
-.scan-results-description h3 {
-  font-size: var(--h3-font);
-  color: var(--main-color);
 }
 
 .scan-results-description .trash-type {
@@ -786,15 +782,18 @@ select {
 .scan-results-description .trash-description {
   font-size: var(--p-font);
   color: var(--text-color);
+  margin-bottom: 5rem;
 }
 
-.delete-btn-container {
-  margin-top: 30px;
+.scanner-delete-btn-container {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   justify-content: end;
 }
 
-.delete-btn {
+.scanner-delete-btn {
   padding: 7px 30px;
   background-color: red;
   color: var(--secondary-color);
@@ -803,6 +802,11 @@ select {
   font-size: var(--p-font);
   font-weight: 400;
   cursor: pointer;
+  transition: .3s ease-in-out;
+}
+
+.scanner-delete-btn:hover {
+  transform: scale(.98);
 }
 
 /* CART */
