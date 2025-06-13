@@ -34,6 +34,11 @@
   .filter-shop-button-list {
     gap: 20px;
   }
+
+  .filter-shop-button {
+    padding: 10px 0;
+  }
+
   .shop-list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -55,6 +60,10 @@
   .camera-take-button-container {
     flex-direction: column;
     order: -1;
+  }
+  
+  .camera-take-button-container button:hover {
+    transform: scale(.98);
   }
 
   .scan-results-image img {
@@ -319,6 +328,13 @@
   .list-fitur p {
     font-size: var(--p-font);
   }
+
+/* SCANNER */
+.scan-results-description .trash-type {
+  width: 100%;
+  padding: 5px 0;
+  text-align: center;
+}
 
   /* SHOP & SCANNER*/
   .shop-item__image img {
