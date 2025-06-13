@@ -11,7 +11,7 @@ export default class HomePage {
       <section id="home">
         <div class="home-container">
           <div class="home-description">
-            <h1>BIOPORI & <br><span>RECYCLE ZONE</span></h1>
+            <h1>BIOPORE & <br><span>RECYCLE ZONE</span></h1>
             <p>
               BIOREZ merupakan sebuah platform berbasis website yang dirancang untuk mendukung gaya hidup ramah lingkungan melalui pengelolaan sampah dan pemanfaatan teknologi biopori.
             </p>
