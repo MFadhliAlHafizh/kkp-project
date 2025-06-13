@@ -193,6 +193,10 @@ nav {
   transition: 0.3s ease-in-out;
 }
 
+.cart-navbar {
+  display: none;
+}
+
 .navigation-container .nav-menu li .inactive:hover {
   text-shadow: 0 0 2px var(--main-color);
 }

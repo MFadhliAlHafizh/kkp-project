@@ -290,6 +290,10 @@
     --p-font: 0.8rem;
   }
 
+  .cart-navbar {
+    display: block;
+  }
+
   .header-button {
     padding: 7px 15px;
     gap: 5px;
