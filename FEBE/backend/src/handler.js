@@ -1,4 +1,42 @@
 const shopItems = require("./shop");
+const { nanoid } = require("nanoid");
+
+const addShopItem = (request, h) => {
+  const { category, imageUrl, itemName, description, price } = request.payload;
+  const id = nanoid(16);
+
+  const newShopItem = {
+    id,
+    category,
+    imageUrl,
+    itemName,
+    description,
+    price,
+  };
+
+  shopItems.push(newShopItem);
+
+  const isSuccess = shopItems.filter((item) => item.id === id).length > 0;
+
+  if (isSuccess) {
+    const response = h.response({
+      status: "success",
+      message: "Produk berhasil ditambahkan",
+      data: {
+        itemId: id,
+      },
+    });
+    response.code(201);
+    return response;
+  }
+
+  const response = h.response({
+    status: "fail",
+    message: "Produk gagal ditambahkan",
+  });
+  response.code(500);
+  return response;  
+};
 
 const getAllShopItemsHandler = () => ({
   status: "success",
@@ -23,7 +61,39 @@ const getShopItemByIdHandler = (request, h) => {
 
   const response = h.response({
     status: "fail",
-    message: "Pesanan tidak ditemukan",
+    message: "Produk tidak ditemukan",
+  });
+  response.code(404);
+  return response;
+};
+
+const editShopItemByIdHandler = (request, h) => {
+  const { id } = request.params;
+  const { category, imageUrl, itemName, description, price } = request.payload;
+
+  const index = shopItems.findIndex((item) => item.id === id);
+
+  if (index !== -1) {
+    shopItems[index] = {
+      ...shopItems[index],
+      category,
+      imageUrl,
+      itemName,
+      description,
+      price,
+    };
+
+    const response = h.response({
+      status: "success",
+      message: "Produk berhasil diperbaharui",
+    });
+    response.code(200);
+    return response;
+  }
+
+  const response = h.response({
+    status: "fail",
+    message: "Gagal memperbaharui produk, id tidak ditemukan",
   });
   response.code(404);
   return response;
@@ -38,7 +108,7 @@ const deleteShopItemByIdHandler = (request, h) => {
     shopItems.splice(index, 1);
     const response = h.response({
       status: 'success',
-      message: 'Pesanan berhasil dihapus',
+      message: 'Produk berhasil dihapus',
     });
     response.code(200);
     return response;
@@ -46,10 +116,16 @@ const deleteShopItemByIdHandler = (request, h) => {
 
   const response = h.response({
     status: 'fail',
-    message: 'Catatan gagal dihapus.',
+    message: 'Produk gagal dihapus',
   });
   response.code(404);
   return response;
 };
 
-module.exports = { getAllShopItemsHandler, deleteShopItemByIdHandler, getShopItemByIdHandler }
+module.exports = { 
+  addShopItem, 
+  getAllShopItemsHandler, 
+  getShopItemByIdHandler,
+  editShopItemByIdHandler,
+  deleteShopItemByIdHandler 
+}

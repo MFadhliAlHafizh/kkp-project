@@ -212,6 +212,11 @@
     justify-content: center;
   }
 
+  /* CONTACT US */
+  .contact-us-container {
+    flex-direction: column;
+  }
+
   /* BIOPORI */
   .biopori-button-container {
     flex-direction: column;
@@ -302,6 +307,10 @@
   .header-button .bx-cart {
     display: none;
   }
+  
+  .cart-button {
+    display: none;
+  }
 
   .header-button .line-header {
     display: none;
@@ -333,12 +342,26 @@
     font-size: var(--p-font);
   }
 
-/* SCANNER */
-.scan-results-description .trash-type {
-  width: 100%;
-  padding: 5px 0;
-  text-align: center;
-}
+  /* SCANNER */
+  .scan-results-description .trash-type {
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+  }
+
+  /* CONTACT US */
+  .contact-us-information,
+  .contact-us-form__container {
+    padding: 20px;  
+  }
+  
+  .contact-us-information__social-media {
+    gap: 15px;
+  }
+
+  .contact-us-information__sub-heading-description {
+    font-size: 15px;
+  }
 
   /* SHOP & SCANNER*/
   .shop-item__image img {
