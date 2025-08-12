@@ -181,8 +181,13 @@
   }
 
   /* OUR SERVICE */
-  .fitur {
+  .main-services {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .services-list {
+    max-width: none;
   }
 
   /* VISSION & MISSION */
@@ -334,11 +339,11 @@
   }
 
   /* OUR SERVICE */
-  .list-fitur h2 {
+  .services-list h2 {
     font-size: var(--h2-font);
   }
 
-  .list-fitur p {
+  .services-list p {
     font-size: var(--p-font);
   }
 

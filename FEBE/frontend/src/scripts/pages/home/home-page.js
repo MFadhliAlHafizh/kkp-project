@@ -12,8 +12,8 @@ export default class HomePage {
         <div class="home-container">
           <div class="home-description">
             <h1>BIOPORE & <br><span>RECYCLE ZONE</span></h1>
-            <p>
-              BIOREZ merupakan sebuah platform berbasis website yang dirancang untuk mendukung gaya hidup ramah lingkungan melalui pengelolaan sampah dan pemanfaatan teknologi biopori.
+            <p class="description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia eius, id vitae quibusdam quod numquam facilis! Voluptatem nostrum itaque laboriosam, veritatis tenetur autem repellat error eos, velit explicabo molestias doloribus?
             </p>
             <div class="home-btn">
               <a href="#services" class="button green-button">Explore</a>
@@ -31,17 +31,17 @@ export default class HomePage {
         <div class="service-container">
           <h1 class="section-title">Our Services</h1>
 
-          <div class="fitur">
-            <div class="list-fitur">
+          <div class="main-services">
+            <div class="services-list">
               <i class="bx bx-scan bx-lg"></i>
               <h3>Scanner</h3>
-              <p>Klasifikasi sampah organik dan anorganik</p>
+              <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </div>
 
-            <div class="list-fitur">
+            <div class="services-list">
               <i class="bx bx-book bx-lg"></i>
               <h3>Article</h3>
-              <p>Jual beli barang bekas layak pakai</p>
+              <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </div>
           </div>
         </div>
@@ -56,16 +56,15 @@ export default class HomePage {
 
           <div class="vision-mission-body">
               <div class="vision-mission-content">
-                <h2>Visi</h2>
-                <p class="vision-description">
-                  Menjadi platform digital terdepan dalam mendorong gaya hidup ramah lingkungan melalui inovasi pemilahan sampah, pemanfaatan limbah, dan pemasyarakatan biopori secara berkelanjutan di Indonesia.
-                </p>
+                <h3>Visi</h3>
+                <p class="description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, dolorum asperiores, doloribus aliquid culpa a dolores itaque reprehenderit animi placeat magnam ipsam nemo minus architecto nesciunt quis! Maiores, fuga repellat.
               </div>
 
               <div class="vision-mission-content">
-                <h2>Misi</h2>
-                <p class="mission-description">
-                  BIOREZ bertujuan untuk meningkatkan kesadaran dan partisipasi masyarakat dalam pengelolaan sampah dan pelestarian lingkungan melalui fitur pemindai sampah, marketplace barang bekas, serta layanan biopori. Melalui edukasi dan kolaborasi komunitas, BIOREZ membangun ekosistem digital yang mendukung gaya hidup ramah lingkungan secara berkelanjutan.
+                <h3>Misi</h3>
+                <p class="description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, pariatur perferendis? Ratione officia perferendis dicta voluptates mollitia in eius. Quis amet sapiente sit explicabo id tempora dolore ipsam quia, temporibus quo vero rerum provident nostrum quidem deserunt ipsa aut? Molestias?
                 </p>
               </div>
             </div>
@@ -92,7 +91,7 @@ export default class HomePage {
             <div class="contact-us-information__header">
               <p class="contact-us-information__header-title">Contact Us</p>
               <h2 class="contact-us-information__header-sub-title">Get In Touch</h2>
-              <p class="contact-us-information__header-description">
+              <p class="description">
                 corporis! Dolores, eos nulla soluta voluptate neque expedita
                 dolorum cupiditate sunt nostrum.
               </p>
