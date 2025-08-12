@@ -25,24 +25,6 @@
     gap: 30px;
   }
 
-  /* SHOP */
-  .filter-shop-button-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .filter-shop-button-list {
-    gap: 20px;
-  }
-
-  .filter-shop-button {
-    padding: 10px 0;
-  }
-
-  .shop-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   /* SCANNER */
   .new-form__documentations__outputs-item {
     flex-direction: column;
@@ -222,18 +204,6 @@
     flex-direction: column;
   }
 
-  /* BIOPORI */
-  .biopori-button-container {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .biopori-services-button-container {
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
   /* ARTICLE */
   .article-list {
     grid-template-columns: 1fr;
@@ -266,21 +236,6 @@
 
   .logo-container .logo-name {
     font-size: 1.3rem;
-  }
-
-  /* SHOP */
-  .filter-shop-button {
-    padding: 10px 30px;
-    font-size: 0.8rem !important;
-  }
-
-  .cart-list-display,
-  .shop-list {
-    grid-template-columns: 1fr;
-  }
-
-  .shop-item {
-    max-width: 370px;
   }
 
   /* FOOTER */
@@ -330,19 +285,6 @@
     font-size: var(--p-font);
   }
 
-  /* SHOP */
-  .search-input {
-    width: 80%;
-  }
-
-  .filter-shop-button-list {
-    flex-direction: column;
-  }
-
-  .shop-item__cart-button i {
-    font-size: 22px;
-  }
-
   /* OUR SERVICE */
   .services-list h2 {
     font-size: var(--h2-font);
@@ -373,11 +315,7 @@
     font-size: 15px;
   }
 
-  /* SHOP & SCANNER*/
-  .shop-item__image img {
-    width: 80%;
-  }
-
+  /* SCANNER*/
   .new-form__documentations__outputs {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
