@@ -901,6 +901,21 @@ textarea:focus-visible,
 }
 
 /* ARTICLE */
+.search-input-container {
+  text-align: center;
+  margin-inline: auto;
+  margin-bottom: 50px;
+}
+
+.search-input {
+  width: 60%;
+  padding: 15px;
+  background-color: var(--secondary-color);
+  border: var(--main-color) solid;
+  border-radius: 50px;
+  font-size: var(--p-font);
+}
+
 .all-articles__button {
   margin-top: 4rem;
 }
