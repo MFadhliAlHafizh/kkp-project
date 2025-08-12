@@ -19,7 +19,7 @@ export default class ShopPage {
           <h1 class="section-title">Shop</h1>
 
           <div class="search-btn">
-            <input id="search-shop" class="search-shop" type="search" placeholder="Search..." />
+            <input id="search-input" class="search-input" type="search" placeholder="Search..." />
           </div>
 
           <div class="filter-shop-button-container">
@@ -52,7 +52,7 @@ export default class ShopPage {
 
     await this.#presenter.initialShopItems();
 
-    const searchInput = document.getElementById('search-shop');
+    const searchInput = document.getElementById('search-input');
     searchInput.addEventListener('input', (event) => {
       const searchTerm = event.target.value.trim().toLowerCase();
       this.#presenter.filterItems(searchTerm, this.activeFilter);

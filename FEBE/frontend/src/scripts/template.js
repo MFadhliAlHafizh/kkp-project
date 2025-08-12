@@ -10,6 +10,26 @@ export function generateLoaderAbsoluteTemplate() {
   `;
 }
 
+export function generateArticleItemsTemplate(item) {
+  return `
+    <div class="article-item" data-itemId="${item.id}">
+        <p class="description">${item.date}</p>
+        <div class="article-image">
+            <img src="${item.image}" alt="Article Image">
+        </div>
+        <h3 class="article-title">${item.title}</h3>
+        <div class="article-line"></div>
+        <div class="article-description">
+            <p class="description">${item.description}</p>
+        </div>
+        <a href=""  class="article-link">
+            Read More
+            <i class='bx bx-right-arrow-alt'></i>
+        </a>
+    </div>
+  `
+}
+
 export function generateShopItemsTemplate(item, showCartButton = true) {
   return `
     <div class="shop-item" data-itemId="${item.id}">

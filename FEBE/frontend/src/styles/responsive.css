@@ -233,6 +233,11 @@
     width: 100%;
     margin-bottom: 20px;
   }
+
+  /* ARTICLE */
+  .article-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 724px) {
@@ -326,7 +331,7 @@
   }
 
   /* SHOP */
-  .search-btn .search-shop {
+  .search-input {
     width: 80%;
   }
 
