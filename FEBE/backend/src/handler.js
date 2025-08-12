@@ -1,27 +1,26 @@
-const shopItems = require("./shop");
+const articles = require("./article");
 const { nanoid } = require("nanoid");
 
-const addShopItem = (request, h) => {
-  const { category, imageUrl, itemName, description, price } = request.payload;
+const addArticleHandler = (request, h) => {
+  const { date, image, title, description } = request.payload;
   const id = nanoid(16);
 
-  const newShopItem = {
+  const newArticleItem = {
     id,
-    category,
-    imageUrl,
-    itemName,
+    date,
+    image,
+    title,
     description,
-    price,
   };
 
-  shopItems.push(newShopItem);
+  articles.push(newArticleItem);
 
-  const isSuccess = shopItems.filter((item) => item.id === id).length > 0;
+  const isSuccess = articles.filter((item) => item.id === id).length > 0;
 
   if (isSuccess) {
     const response = h.response({
       status: "success",
-      message: "Produk berhasil ditambahkan",
+      message: "Artikel berhasil ditambahkan",
       data: {
         itemId: id,
       },
@@ -32,60 +31,59 @@ const addShopItem = (request, h) => {
 
   const response = h.response({
     status: "fail",
-    message: "Produk gagal ditambahkan",
+    message: "Artikel gagal ditambahkan",
   });
   response.code(500);
   return response;  
 };
 
-const getAllShopItemsHandler = () => ({
+const getAllArticlesHandler = () => ({
   status: "success",
   data: {
-    shopItems,
+    articles,
   },
 });
 
-const getShopItemByIdHandler = (request, h) => {
+const getArticleByIdHandler = (request, h) => {
   const { id } = request.params;
 
-  const shopItem = shopItems.filter((n) => n.id === id)[0];
+  const article = articles.filter((n) => n.id === id)[0];
 
-  if (shopItem !== undefined) {
+  if (article !== undefined) {
     return {
       status: "success",
       data: {
-        shopItem,
+        article,
       },
     };
   }
 
   const response = h.response({
     status: "fail",
-    message: "Produk tidak ditemukan",
+    message: "Artikel tidak ditemukan",
   });
   response.code(404);
   return response;
 };
 
-const editShopItemByIdHandler = (request, h) => {
+const editArticleByIdHandler = (request, h) => {
   const { id } = request.params;
-  const { category, imageUrl, itemName, description, price } = request.payload;
+  const { date, image, title, description } = request.payload;
 
-  const index = shopItems.findIndex((item) => item.id === id);
+  const index = articles.findIndex((item) => item.id === id);
 
   if (index !== -1) {
-    shopItems[index] = {
-      ...shopItems[index],
-      category,
-      imageUrl,
-      itemName,
+    articles[index] = {
+      ...articles[index],
+      date,
+      image,
+      title,
       description,
-      price,
     };
 
     const response = h.response({
       status: "success",
-      message: "Produk berhasil diperbaharui",
+      message: "Artikel berhasil diperbaharui",
     });
     response.code(200);
     return response;
@@ -93,22 +91,22 @@ const editShopItemByIdHandler = (request, h) => {
 
   const response = h.response({
     status: "fail",
-    message: "Gagal memperbaharui produk, id tidak ditemukan",
+    message: "Gagal memperbaharui artikel, id tidak ditemukan",
   });
   response.code(404);
   return response;
 };
 
-const deleteShopItemByIdHandler = (request, h) => {
+const deleteArticleByIdHandler = (request, h) => {
   const { id } = request.params;
 
-  const index = shopItems.findIndex((item) => item.id === id);
+  const index = articles.findIndex((item) => item.id === id);
 
   if (index !== -1) {
-    shopItems.splice(index, 1);
+    articles.splice(index, 1);
     const response = h.response({
       status: 'success',
-      message: 'Produk berhasil dihapus',
+      message: 'Artikel berhasil dihapus',
     });
     response.code(200);
     return response;
@@ -116,16 +114,16 @@ const deleteShopItemByIdHandler = (request, h) => {
 
   const response = h.response({
     status: 'fail',
-    message: 'Produk gagal dihapus',
+    message: 'Artikel gagal dihapus',
   });
   response.code(404);
   return response;
 };
 
 module.exports = { 
-  addShopItem, 
-  getAllShopItemsHandler, 
-  getShopItemByIdHandler,
-  editShopItemByIdHandler,
-  deleteShopItemByIdHandler 
+  addArticleHandler, 
+  getAllArticlesHandler, 
+  getArticleByIdHandler,
+  editArticleByIdHandler,
+  deleteArticleByIdHandler 
 }

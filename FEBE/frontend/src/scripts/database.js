@@ -2,7 +2,7 @@ import { openDB } from 'idb';
  
 const DATABASE_NAME = 'biorez';
 const DATABASE_VERSION = 1;
-const OBJECT_STORE_NAME = 'saved-order';
+const OBJECT_STORE_NAME = 'saved-article';
  
 const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade: (database) => {
@@ -13,22 +13,22 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 });
 
 const Database = {
-  async putShopItem(shopItem) {
-    if (!Object.hasOwn(shopItem, 'id')) {
+  async putArticle(article) {
+    if (!Object.hasOwn(article, 'id')) {
       throw new Error('`id` is required to save.');
     }
-    return (await dbPromise).put(OBJECT_STORE_NAME, shopItem);
+    return (await dbPromise).put(OBJECT_STORE_NAME, article);
   },
 
-  async getAllShopItems() {
+  async getAllArticles() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
 
-  async getShopItemById(id) {
+  async getArticleById(id) {
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
 
-  async removeShopItem(id) {
+  async removeArticle(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
 };

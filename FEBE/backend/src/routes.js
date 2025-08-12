@@ -1,36 +1,36 @@
 const {
-  addShopItem,
-  getAllShopItemsHandler,
-  deleteShopItemByIdHandler,
-  getShopItemByIdHandler,
-  editShopItemByIdHandler,
+  addArticleHandler,
+  getAllArticlesHandler,
+  getArticleByIdHandler,
+  editArticleByIdHandler,
+  deleteArticleByIdHandler,
 } = require("./handler");
 
 const routes = [
   {
     method: "POST",
-    path: "/shopItems",
-    handler: addShopItem,
+    path: "/articles",
+    handler: addArticleHandler,
   },
   {
     method: "GET",
-    path: "/shopItems",
-    handler: getAllShopItemsHandler,
-  },
-  {
-    method: "GET",
-    path: "/shopItems/{id}",
-    handler: getShopItemByIdHandler,
-  },
-  {
-    method: "PUT",
-    path: "/shopItems/{id}",
-    handler: editShopItemByIdHandler,
+    path: "/articles",
+    handler: getAllArticlesHandler,
   },
   {
     method: "DELETE",
-    path: "/shopItems/{id}",
-    handler: deleteShopItemByIdHandler,
+    path: "/articles/{id}",
+    handler: getArticleByIdHandler,
+  },
+  {
+    method: "GET",
+    path: "/articles/{id}",
+    handler: editArticleByIdHandler,
+  },
+  {
+    method: "PUT",
+    path: "/articles/{id}",
+    handler: deleteArticleByIdHandler,
   },
 ];
 

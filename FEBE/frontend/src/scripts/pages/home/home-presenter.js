@@ -7,14 +7,14 @@ export default class HomePresenter {
       this.#model = model;
     }
 
-    async initialShopItems() {
+    async initialArticles() {
       this.#view.showLoading();
       try {  
-        const response = await this.#model.getAllShopItems();
+        const response = await this.#model.getAllArticles();
   
-        this.#view.populateShopItemsList(response.status, response.data);
+        this.#view.populateArticlesList(response.status, response.data);
       } catch (error) {
-        console.error('initialShopItems: error:', error);
+        console.error('initialArticles: error:', error);
       } finally {
         this.#view.hideLoading();
       }

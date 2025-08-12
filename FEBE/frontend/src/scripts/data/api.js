@@ -1,31 +1,31 @@
 import BASE_URL from "../config";
 
 const ENDPOINTS = {
-    SHOP_ITEMS: `${BASE_URL}/shopItems`,
-    SPECIFIED_SHOP_ITEMS: (id) => `${BASE_URL}/shopItems/${id}`,
+    ARTICLES: `${BASE_URL}/articles`,
+    SPECIFIED_ARTICLES: (id) => `${BASE_URL}/articles/${id}`,
 }
 
-export async function getAllShopItems() {
-    const fetchResponse = await fetch(ENDPOINTS.SHOP_ITEMS);
+export async function getAllArticles() {
+    const fetchResponse = await fetch(ENDPOINTS.ARTICLES);
     const json = await fetchResponse.json();
 
-    console.log('getAllShopItems response:', json);
+    console.log('getAllArticles response:', json);
 
     return {
       ok: fetchResponse.ok,
       message: json.status,
-      data: json.data.shopItems,
+      data: json.data.articles,
     }
 }
 
-export async function getShopItemById(id) {
-  const fetchResponse = await fetch(ENDPOINTS.SPECIFIED_SHOP_ITEMS(id));
+export async function getArticleById(id) {
+  const fetchResponse = await fetch(ENDPOINTS.SPECIFIED_ARTICLES(id));
   const json = await fetchResponse.json();
 
-  console.log('getShopItemById response:', json);
+  console.log('getArticleById response:', json);
 
   return {
     ok: fetchResponse.ok,
-    shopItem: json.data.shopItem,
+    article: json.data.article,
   };
 }

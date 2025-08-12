@@ -11,6 +11,12 @@ export function generateLoaderAbsoluteTemplate() {
 }
 
 export function generateArticleItemsTemplate(item) {
+  const maxWords = 15; 
+  const words = item.description.split(' ');
+  const shortDescription = words.length > maxWords
+    ? words.slice(0, maxWords).join(' ') + '...'
+    : item.description;
+
   return `
     <div class="article-item" data-itemId="${item.id}">
         <p class="description">${item.date}</p>
@@ -20,9 +26,9 @@ export function generateArticleItemsTemplate(item) {
         <h3 class="article-title">${item.title}</h3>
         <div class="article-line"></div>
         <div class="article-description">
-            <p class="description">${item.description}</p>
+            <p class="description">${shortDescription}</p>
         </div>
-        <a href=""  class="article-link">
+        <a href="" class="article-link">
             Read More
             <i class='bx bx-right-arrow-alt'></i>
         </a>

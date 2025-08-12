@@ -1,4 +1,4 @@
-import { generateShopItemsTemplate, generateLoaderAbsoluteTemplate } from '../../template';
+import { generateArticleItemsTemplate, generateLoaderAbsoluteTemplate } from '../../template';
 import * as BiorezAPI from '../../data/api';
 import HomePresenter from './home-presenter';
 
@@ -72,16 +72,17 @@ export default class HomePage {
         </div>
       </section>
 
-      <!-- SHOP -->
-      <section id="shop" class="shop background-section">
-        <div class="shop-container">
-          <h1 class="section-title">Our Shop</h1>
+      <!-- ARTICLE PREVIEW -->
+      <section id="article" class="article background-section">
+        <div class="article-container">
+          <h1 class="section-title">Article</h1>
 
-          <div id="shop-list"></div>
-          <div class="shop-item__button">
-            <a href="#/shop" class="button green-button">All Items</a>
+          <div id="article-list"></div>
+          <div class="all-articles__button">
+            <a href="#/article" class="button green-button">All Articles</a>
           </div>
-          <div id="shop-list-loading-container"></div>
+          <div id="article-list-loading-container"></div>
+        </div>
       </section>
 
       <!-- CONTACT US -->
@@ -197,26 +198,26 @@ export default class HomePage {
       model: BiorezAPI,
     });
 
-    await this.#presenter.initialShopItems();
+    await this.#presenter.initialArticles();
   }
 
-  populateShopItemsList(message, items) {
-    const limitedItems = items.slice(0, 6);
+  populateArticlesList(message, items) {
+    const limitedItems = items.slice(0, 2);
 
     const html = limitedItems.reduce((acc, item) => {
-      return acc.concat(generateShopItemsTemplate(item, false));
+      return acc.concat(generateArticleItemsTemplate(item, false));
     }, '');
 
-    document.getElementById('shop-list').innerHTML = `
-        <div class="shop-list">${html}</div>
+    document.getElementById('article-list').innerHTML = `
+        <div class="article-list">${html}</div>
       `;
   }
 
   showLoading() {
-    document.getElementById('shop-list-loading-container').innerHTML = generateLoaderAbsoluteTemplate();
+    document.getElementById('article-list-loading-container').innerHTML = generateLoaderAbsoluteTemplate();
   }
 
   hideLoading() {
-    document.getElementById('shop-list-loading-container').innerHTML = '';
+    document.getElementById('article-list-loading-container').innerHTML = '';
   }
 }
