@@ -1,19 +1,21 @@
-export default class ArticlePresenter {
+export default class CollectionPresenter {
   #view;
-  #apiModel;
+  #model;
   #allItems = [];
 
-  constructor({ view, apiModel }) {
+  constructor({ view, model }) {
     this.#view = view;
-    this.#apiModel = apiModel;
+    this.#model = model;
   }
 
   async initialArticles() {
     this.#view.showLoading();
     try {
-      const response = await this.#apiModel.getAllArticles();
-      this.#allItems = response.data;
-      this.#view.populateArticlesList(response.message, this.#allItems);
+      const response = await this.#model.getAllArticles();
+      this.#allItems = response;
+      const message = "Berhasil mendapatkan daftar koleksi artikel.";
+
+      this.#view.populateArticlesCollection(message, this.#allItems);
     } catch (error) {
       console.error('initialArticles: error:', error);
     } finally {
@@ -28,7 +30,7 @@ export default class ArticlePresenter {
       return titleMatch || descriptionMatch;
     });
 
-    this.#view.populateArticlesList(
+    this.#view.populateArticlesCollection(
       filteredItems.length > 0 ? 'success' : 'not found',
       filteredItems
     );

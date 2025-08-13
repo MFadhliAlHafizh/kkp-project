@@ -2,10 +2,10 @@ import {
   generateArticleItemsTemplate,
   generateLoaderAbsoluteTemplate,
 } from "../../template";
-import * as BiorezAPI from "../../data/api";
-import ArticlePresenter from "./article-presenter";
+import Database from "../../data/database";
+import CollectionPresenter from "./collection-presenter";
 
-export default class ArticlePage {
+export default class CollectionPage {
   #presenter = null;
   activeFilter = null;
 
@@ -13,7 +13,7 @@ export default class ArticlePage {
     return `
       <section id="article" class="article background-section">
         <div class="article-container">
-          <h1 class="section-title">Article</h1>
+          <h1 class="section-title">Article Collection</h1>
           
           <div class="search-input-container">
               <input id="search-input" class="search-input" type="search" placeholder="Search..."/>
@@ -27,9 +27,9 @@ export default class ArticlePage {
   }
 
   async afterRender() {
-    this.#presenter = new ArticlePresenter({
+    this.#presenter = new CollectionPresenter({
       view: this,
-      apiModel: BiorezAPI,
+      model: Database,
     });
 
     await this.#presenter.initialArticles();
@@ -49,7 +49,7 @@ export default class ArticlePage {
     });
   }
 
-  populateArticlesList(message, items) {
+  populateArticlesCollection(message, items) {
     if (!items || items.length === 0) {
       document.getElementById("article-list").innerHTML = `
             <p class="no-search-results">Artikel Tidak Tersedia.</p>

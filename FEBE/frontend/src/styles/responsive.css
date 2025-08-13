@@ -124,7 +124,7 @@
     padding: 10px 40px;
   }
 
-  .cart-button {
+  .collection-button {
     padding: 0;
   }
 
@@ -260,7 +260,7 @@
     --p-font: 0.8rem;
   }
 
-  .cart-navbar {
+  .collection-navbar {
     display: block;
   }
 
@@ -273,7 +273,7 @@
     display: none;
   }
   
-  .cart-button {
+  .collection-button {
     display: none;
   }
 

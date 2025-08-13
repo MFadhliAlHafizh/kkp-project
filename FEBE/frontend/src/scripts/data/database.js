@@ -20,12 +20,15 @@ const Database = {
     return (await dbPromise).put(OBJECT_STORE_NAME, article);
   },
 
-  async getAllArticles() {
-    return (await dbPromise).getAll(OBJECT_STORE_NAME);
+  async getArticleById(id) {
+    if (!id) {
+      throw new Error('`id` is required.');
+    }
+    return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
 
-  async getArticleById(id) {
-    return (await dbPromise).get(OBJECT_STORE_NAME, id);
+  async getAllArticles() {
+    return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
 
   async removeArticle(id) {

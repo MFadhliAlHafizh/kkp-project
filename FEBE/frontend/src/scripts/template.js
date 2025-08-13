@@ -51,11 +51,7 @@ export function generateArticleDetailsTemplate({
       <div class="article-detail-header-content">
         <div class="article-detail-header-link">
           <p class="description">${date}</p>
-          <div class="add-to-collection-button">
-            <a href="" class="white-button">
-              <i class="bx bx-book-bookmark"></i>Tambah ke Koleksi
-            </a>
-          </div>
+          <div id="add-to-collection-button-container" class="add-to-collection-button-container"></div>
         </div>
         <h2 class="article-detail-title">${title}</h2>
       </div>
@@ -72,42 +68,28 @@ export function generateArticleDetailsTemplate({
   `;
 }
 
+export function generateSaveArticleButtonTemplate() {
+  return `
+    <button id="add-to-collection-button" class="add-to-collection-button white-button">
+      <i class="bx bx-book-bookmark"></i>Tambah ke Koleksi
+    </button>
+  `;
+}
+
+export function generateRemoveArticleButtonTemplate() {
+  return `
+    <button id="add-to-collection-button" class="add-to-collection-button white-button">
+      <i class="bx bx-book"></i>Hapus Koleksi Artikel
+    </button>
+  `;
+}
+
 export function generateArticleDetailErrorTemplate(message) {
   return `
     <div id="article-detail-error" class="article-detail__error">
       <h2>Terjadi kesalahan pengambilan detail artikel</h2>
       <p>
         ${message ? message : "Gunakan jaringan lain atau laporkan error ini."}</p>
-    </div>
-  `;
-}
-
-export function generateCartItemsTemplate(item) {
-  return `
-    <div class="cart-box cart-item" data-itemId="${item.id}">
-      <div class="cart-item__close-button-container">
-        <button class="cart-item__close-button">X</button>
-      </div>
-      <div class="cart-item__image">
-        <img src="${item.imageUrl}" alt="${item.itemName} image" />
-      </div>
-        
-      <div class="cart-item__body">
-        <h3 class="cart-item__name">${item.itemName}</h3>
-        <p class="cart-item-description">
-          ${item.description}
-        </p>
-        <h2 class="cart-item__price">Rp${item.price.toLocaleString('id-ID')}</h3>
-      </div>
-    </div>
-  `;
-}
-
-export function generateCartDetailsOrderTemplate(item) {
-  return `
-    <div class="cart-details-order">
-      <p class="cart-details__name">${item.itemName}</p>
-      <p class="cart-details__price">Rp${item.price.toLocaleString('id-ID')}</p>
     </div>
   `;
 }
