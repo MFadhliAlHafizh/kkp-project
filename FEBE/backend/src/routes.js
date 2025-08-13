@@ -18,17 +18,17 @@ const routes = [
     handler: getAllArticlesHandler,
   },
   {
-    method: "DELETE",
+    method: "GET",
     path: "/articles/{id}",
     handler: getArticleByIdHandler,
   },
   {
-    method: "GET",
+    method: "PUT",
     path: "/articles/{id}",
     handler: editArticleByIdHandler,
   },
   {
-    method: "PUT",
+    method: "DELETE",
     path: "/articles/{id}",
     handler: deleteArticleByIdHandler,
   },
