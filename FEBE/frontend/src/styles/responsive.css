@@ -180,8 +180,13 @@
   }
 
   /* ARTICLE */
+  .search-input {
+    width: 80%;
+  }
+
   .article-list {
     grid-template-columns: 1fr;
+    justify-self: center;
   }
 }
 
@@ -224,6 +229,12 @@
 
   .footer-law {
     gap: 30px;
+  }
+
+  /* ARTICLE */
+  .search-input{
+    width: 100%;
+    padding: 10px;
   }
 }
 

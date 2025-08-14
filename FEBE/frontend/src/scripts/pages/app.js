@@ -58,14 +58,15 @@ export default class App {
 
     const transition = transitionHelper({
       updateDOM: async () => {
-        try {
-          this.#content.innerHTML = await page.render();
-          await page.afterRender();
-          this.#updateActiveNavLink();
-        } catch (error) {
-          console.error('Error while rendering page:', error);
-        }
+        this.#content.innerHTML = await page.render();
+        await page.afterRender();
+        this.#updateActiveNavLink();
       },
+    });
+
+    transition.ready.catch(console.error);
+    transition.updateCallbackDone.then(() => {
+      scrollTo({ top: 0, behavior: 'instant' });
     });
   }
 }
