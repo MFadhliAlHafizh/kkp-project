@@ -1,5 +1,8 @@
 import {
   generateArticleItemsTemplate,
+  generateArticlesListEmptyTemplate,
+  generateArticlesNotFoundTemplate,
+  generateArticlesListErrorTemplate,
   generateLoaderAbsoluteTemplate,
 } from "../../template";
 import * as BiorezAPI from "../../data/api";
@@ -15,12 +18,14 @@ export default class ArticlePage {
         <div class="article-container">
           <h1 class="section-title">Article</h1>
           
-          <div class="search-input-container">
-              <input id="search-input" class="search-input" type="search" placeholder="Search..."/>
+          <div id="article-content-container" class="article-content-container">
+            <div class="search-input-container">
+                <input id="search-input" class="search-input" type="search" placeholder="Search..."/>
+            </div>
+          
+            <div id="article-list"></div>
+            <div id="article-list-loading-container"></div>
           </div>
-
-          <div id="article-list"></div>
-          <div id="article-list-loading-container"></div>
         </div>
       </section>
     `;
@@ -51,9 +56,7 @@ export default class ArticlePage {
 
   populateArticlesList(message, items) {
     if (!items || items.length === 0) {
-      document.getElementById("article-list").innerHTML = `
-            <p class="no-search-results">Artikel Tidak Tersedia.</p>
-        `;
+      this.populateArticlesListEmpty();
       return;
     }
 
@@ -64,6 +67,18 @@ export default class ArticlePage {
     document.getElementById("article-list").innerHTML = `
       <div class="article-list">${html}</div>
     `;
+  }
+
+  populateArticlesListEmpty() {
+    document.getElementById('article-content-container').innerHTML = generateArticlesListEmptyTemplate();
+  }
+
+  populateArticlesNotFound() {
+    document.getElementById('article-list').innerHTML = generateArticlesNotFoundTemplate();
+  }
+  
+  populateArticlesListError() {
+    document.getElementById('article-content-container').innerHTML = generateArticlesListErrorTemplate();
   }
 
   showLoading() {

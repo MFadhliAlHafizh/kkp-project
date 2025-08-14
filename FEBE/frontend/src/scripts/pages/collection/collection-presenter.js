@@ -30,9 +30,10 @@ export default class CollectionPresenter {
       return titleMatch || descriptionMatch;
     });
 
-    this.#view.populateArticlesCollection(
-      filteredItems.length > 0 ? 'success' : 'not found',
-      filteredItems
-    );
+    if (filteredItems.length === 0) {
+      this.#view.populateArticlesNotFound();
+    } else {
+      this.#view.populateArticlesList('success', filteredItems);
+    }
   }
 }

@@ -52,31 +52,6 @@
     max-width: none;
   }
 
-  /* CART */
-  .cart-list-container {
-    flex-direction: column;
-  }
-
-  .cart-list-display {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    text-align: center;
-  }
-
-  .cart-item {
-    flex-direction: column;
-    padding: 30px 20px;
-  }
-
-  .cart-item__name {
-    margin-top: -15px;
-  }
-
-  .cart-details {
-    order: -1;
-  }
-
   /* FOOTER */
   .footer-content {
     gap: 15%;
@@ -267,10 +242,6 @@
   .header-button {
     padding: 7px 15px;
     gap: 5px;
-  }
-
-  .header-button .bx-cart {
-    display: none;
   }
   
   .collection-button {

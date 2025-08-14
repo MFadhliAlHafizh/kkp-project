@@ -13,9 +13,17 @@ export default class ArticlePresenter {
     try {
       const response = await this.#apiModel.getAllArticles();
       this.#allItems = response.data;
+
+      if (!response.ok) {
+        console.error('initialArticles: response:', response);
+        this.#view.populateArticlesListError(response.message);
+        return;
+      }
+
       this.#view.populateArticlesList(response.message, this.#allItems);
     } catch (error) {
       console.error('initialArticles: error:', error);
+      this.#view.populateArticlesListError(error.message);
     } finally {
       this.#view.hideLoading();
     }
@@ -28,9 +36,10 @@ export default class ArticlePresenter {
       return titleMatch || descriptionMatch;
     });
 
-    this.#view.populateArticlesList(
-      filteredItems.length > 0 ? 'success' : 'not found',
-      filteredItems
-    );
+    if (filteredItems.length === 0) {
+      this.#view.populateArticlesNotFound();
+    } else {
+      this.#view.populateArticlesList('success', filteredItems);
+    }
   }
 }

@@ -84,11 +84,38 @@ export function generateRemoveArticleButtonTemplate() {
   `;
 }
 
+export function generateArticlesListEmptyTemplate() {
+  return `
+    <div id="articles-list-empty" class="articles-list__emptyOrError">
+      <h2>Tidak ada artikel yang tersedia</h2>
+      <p class="description">Maaf, saat ini tidak ada artikel yang dapat ditampilkan.</p>
+    </div>
+  `;
+}
+
+export function generateArticlesNotFoundTemplate() {
+  return `
+    <div id="articles-list-not-found" class="articles-list__emptyOrError">
+      <h2>Artikel tidak ditemukan</h2>
+    </div>
+  `;
+}
+
+export function generateArticlesListErrorTemplate(message) {
+  return `
+    <div id="article-list-error" class="articles-list__emptyOrError">
+      <h2>Terjadi kesalahan pengambilan daftar artikel</h2>
+      <p class="description">
+        ${message ? message : "Gunakan jaringan lain atau laporkan error ini."}</p>
+    </div>
+  `;
+}
+
 export function generateArticleDetailErrorTemplate(message) {
   return `
-    <div id="article-detail-error" class="article-detail__error">
+    <div id="article-detail-error" class="articles-list__emptyOrError">
       <h2>Terjadi kesalahan pengambilan detail artikel</h2>
-      <p>
+      <p class="description">
         ${message ? message : "Gunakan jaringan lain atau laporkan error ini."}</p>
     </div>
   `;
