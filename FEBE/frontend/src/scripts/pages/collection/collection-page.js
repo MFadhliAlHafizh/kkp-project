@@ -13,11 +13,11 @@ export default class CollectionPage {
     return `
       <section id="article" class="article background-section">
         <div class="article-container">
-          <h1 class="section-title">Article Collection</h1>
+          <h1 class="section-title">Koleksi Artikel</h1>
           
           <div id="article-content-container" class="article-content-container">
             <div class="search-input-container">
-                <input id="search-input" class="search-input" type="search" placeholder="Search..."/>
+                <input id="search-input" class="search-input" type="search" placeholder="Cari..."/>
             </div>
           
             <div id="article-list"></div>
@@ -51,7 +51,7 @@ export default class CollectionPage {
     });
   }
 
-  populateArticlesList(message, items) {
+  populateArticlesCollection(message, items) {
     if (!items || items.length === 0) {
       this.populateArticlesListEmpty();
       return;

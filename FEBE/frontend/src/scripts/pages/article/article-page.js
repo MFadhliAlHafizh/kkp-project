@@ -16,11 +16,11 @@ export default class ArticlePage {
     return `
       <section id="article" class="article background-section">
         <div class="article-container">
-          <h1 class="section-title">Article</h1>
+          <h1 class="section-title">Artikel</h1>
           
           <div id="article-content-container" class="article-content-container">
             <div class="search-input-container">
-                <input id="search-input" class="search-input" type="search" placeholder="Search..."/>
+                <input id="search-input" class="search-input" type="search" placeholder="Cari..."/>
             </div>
           
             <div id="article-list"></div>

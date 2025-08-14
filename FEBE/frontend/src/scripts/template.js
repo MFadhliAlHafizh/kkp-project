@@ -29,7 +29,7 @@ export function generateArticleItemsTemplate(item) {
             <p class="description">${shortDescription}</p>
         </div>
         <a href="#/articles/${item.id}" class="read-more-link">
-            Read More
+            Baca Selengkapnya
             <i class='bx bx-right-arrow-alt'></i>
         </a>
     </div>
@@ -79,7 +79,7 @@ export function generateSaveArticleButtonTemplate() {
 export function generateRemoveArticleButtonTemplate() {
   return `
     <button id="add-to-collection-button" class="add-to-collection-button white-button">
-      <i class="bx bx-book"></i>Hapus Koleksi Artikel
+      <i class="bx bx-book"></i>Hapus Dari Koleksi
     </button>
   `;
 }

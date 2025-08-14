@@ -16,7 +16,7 @@ export default class HomePage {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia eius, id vitae quibusdam quod numquam facilis! Voluptatem nostrum itaque laboriosam, veritatis tenetur autem repellat error eos, velit explicabo molestias doloribus?
             </p>
             <div class="home-btn">
-              <a href="#services" class="button green-button">Explore</a>
+              <a href="#services" class="button green-button">Mulai Memindai</a>
             </div>
           </div>
 
@@ -29,18 +29,18 @@ export default class HomePage {
       <!-- OUR SERVICES -->
       <section id="services" class="services background-section">
         <div class="service-container">
-          <h1 class="section-title">Our Services</h1>
+          <h1 class="section-title">Layanan Kami</h1>
 
           <div class="main-services">
             <div class="services-list">
               <i class="bx bx-scan bx-lg"></i>
-              <h3>Scanner</h3>
+              <h3>Pemindai</h3>
               <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </div>
 
             <div class="services-list">
               <i class="bx bx-book bx-lg"></i>
-              <h3>Article</h3>
+              <h3>Artikel</h3>
               <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             </div>
           </div>
@@ -75,11 +75,11 @@ export default class HomePage {
       <!-- ARTICLE PREVIEW -->
       <section id="article" class="article background-section">
         <div class="article-container">
-          <h1 class="section-title">Article</h1>
+          <h1 class="section-title">Artikel</h1>
 
           <div id="article-list"></div>
           <div class="all-articles__button">
-            <a href="#/article" class="button green-button">All Articles</a>
+            <a href="#/article" class="button green-button">Semua Artikel</a>
           </div>
           <div id="article-list-loading-container"></div>
         </div>
@@ -90,8 +90,8 @@ export default class HomePage {
         <div class="contact-us-container">
           <div class="contact-us-information">
             <div class="contact-us-information__header">
-              <p class="contact-us-information__header-title">Contact Us</p>
-              <h2 class="contact-us-information__header-sub-title">Get In Touch</h2>
+              <p class="contact-us-information__header-title">Hubungi Kami</p>
+              <h2 class="contact-us-information__header-sub-title">Ayo Terhubung</h2>
               <p class="description">
                 corporis! Dolores, eos nulla soluta voluptate neque expedita
                 dolorum cupiditate sunt nostrum.
@@ -158,22 +158,22 @@ export default class HomePage {
           <div class="contact-us-form__container">
             <form class="contact-us-form">
               <div class="contact-us-input__container">
-                <label for="username">Your Name</label>
+                <label for="username">Nama Anda</label>
                 <input type="text" name="username" id="username" placeholder="Budi Hermawan" required/>
               </div>
 
               <div class="contact-us-input__container">
-                <label for="email">Your Email</label>
+                <label for="email">Email Anda</label>
                 <input type="email" name="email" id="email" placeholder="budi123@gmail.com" required/>
               </div>
 
               <div class="contact-us-input__container">
-                <label for="subject">Subject</label>
+                <label for="subject">Subjek</label>
                 <input type="text" name="subject" id="subject" placeholder="Krtik & Saran" required/>
               </div>
 
               <div class="contact-us-input__container">
-                <label for="description" class="input-label">Deskripsi Barang</label>
+                <label for="description" class="input-label">Deskripsi</label>
                 <textarea
                   name="description"
                   placeholder="Pesan..."

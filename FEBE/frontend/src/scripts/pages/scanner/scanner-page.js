@@ -125,7 +125,7 @@ export default class Scanner {
       <section id="scanner" class="scanner background-section">
         <form id="new-form" class="new-form">
           <div class="scanner-container">
-            <h1 class="section-title">Waste Classification</h1>
+            <h1 class="section-title">Pemindai Sampah</h1>
             ${this.#isModelLoading ? '<div class="loading-indicator">Memuat model AI...</div>' : ''}
             <div class="new-form__documentations__container">
               <div id="camera-container" class="new-form__camera__container">
