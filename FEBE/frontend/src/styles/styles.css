@@ -286,13 +286,15 @@ main {
   margin: 15px 0 50px;
 }
 
-.home-btn a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.home-btn {
+  display: inline-block;
+  font-size: var(--p-font);
   border-radius: 999px;
-  width: 150px;
   box-shadow: var(--hover-color) 0px 1px 25px;
+}
+
+.home-btn:hover {
+  transform: scale(.98);
 }
 
 .home-img {

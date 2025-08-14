@@ -15,9 +15,7 @@ export default class HomePage {
             <p class="description">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia eius, id vitae quibusdam quod numquam facilis! Voluptatem nostrum itaque laboriosam, veritatis tenetur autem repellat error eos, velit explicabo molestias doloribus?
             </p>
-            <div class="home-btn">
-              <a href="#services" class="button green-button">Mulai Memindai</a>
-            </div>
+            <a href="#services" class="home-btn button green-button">Mulai Memindai</a>
           </div>
 
           <div class="home-img">
